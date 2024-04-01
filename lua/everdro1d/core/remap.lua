@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 -- open explore
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
