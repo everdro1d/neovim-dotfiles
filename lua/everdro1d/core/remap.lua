@@ -50,3 +50,7 @@ vim.keymap.set("n", "<leader><leader>",
     end,
     { desc = "reload source" }
 )
+
+vim.keymap.set("n", "<C-F>", "v%=%",
+    { desc = "format within scope" }
+)
