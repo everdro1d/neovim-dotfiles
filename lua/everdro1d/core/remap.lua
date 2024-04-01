@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 -- open explore
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
 
 -- move highlighted code - try it
@@ -42,6 +44,9 @@ vim.keymap.set(
 )
 
 -- reload source
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("source")
-end, { desc = "reload source" })
+vim.keymap.set("n", "<leader><leader>", 
+    function()
+        vim.cmd("source")
+    end,
+    { desc = "reload source" }
+)
