@@ -7,9 +7,25 @@ wk.register({
 			f = "find file (tele.)",
 			v = "view file system",
 			s = "find with grep string",
+            ["w"] = "find with grep word (vim)",
+            ["W"] = "find with grep WORD (vim.opt)",
+            ws = "find with grep WORD",
+            Ws = "find with grep WORD",
 		},
 		a = "add a file to Harpoon",
 		u = "show/hide undo tree",
+        n = {
+            name = "+neogen",
+            f = "function",
+            t = "type",
+        },
+        tt = "toggle trouble buffer",
+        v = {
+            name = "+buffers",
+            ca = "code actions",
+            rr = "references",
+            rn = "rename",
+        },
 	},
 
 	["<tab>"] = { name = "switch focus editor & undo tree" },
@@ -26,4 +42,10 @@ wk.register({
 			L = "switch to prev. buffer in Harpoon",
 		},
 	},
+    -- must be in trouble window to use these
+    ["[t"] = "goto prev. trouble item",
+    ["]t"] = "goto next trouble item",
+
+    K = "show hover docs.",
+    gd = "go to definition",
 })

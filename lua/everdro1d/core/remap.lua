@@ -55,6 +55,7 @@ vim.keymap.set("n", "<C-F>", "v%=%",
     { desc = "format within scope" }
 )
 
+vim.keymap.set("n", "<leader>pwS", "<nop>")
 
 
 
