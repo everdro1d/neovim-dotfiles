@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.register({
-	["<leader>"] = { 
+	["<leader>"] = {
 		p = {
 			name = "+in project",
 			f = "find file (tele.)",
@@ -10,7 +10,6 @@ wk.register({
 		},
 		a = "add a file to Harpoon",
 		u = "show/hide undo tree",
-
 	},
 
 	["<tab>"] = { name = "switch focus editor & undo tree" },

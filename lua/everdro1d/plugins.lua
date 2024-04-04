@@ -1,13 +1,17 @@
 return {
-	"rebelot/kanagawa.nvim",
-	"mbbill/undotree",
+    {
+        "rebelot/kanagawa.nvim",
+    },
+    {
+        "mbbill/undotree",
+    },
 	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{ 
-		"nvim-telescope/telescope.nvim", 
+	{
+		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
@@ -18,7 +22,6 @@ return {
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {}
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -31,7 +34,7 @@ return {
 		"mfussenegger/nvim-dap",
 	},
 	{
-		'mrcjkb/rustaceanvim',
+		"mrcjkb/rustaceanvim",
 		version = '^4', -- Recommended
 		ft = { 'rust' },
 	},
@@ -42,10 +45,5 @@ return {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		}
-	}
+	},
 }

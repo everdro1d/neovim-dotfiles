@@ -20,16 +20,16 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- preserve clipboard when replacing 
-vim.keymap.set("x", "<leader>x", [["_dP]], 
+-- preserve clipboard when replacing
+vim.keymap.set("x", "<leader>x", [["_dP]],
     { desc = "preserve clipboard replace" })
 
 -- delete to void register (dont copy on delete)
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d", 
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d",
     { desc = "delete to void reg." })
 
 -- yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], 
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]],
     { desc = "yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]],
     { desc = "yank line to system clipboard" })
@@ -44,7 +44,7 @@ vim.keymap.set(
 )
 
 -- reload source
-vim.keymap.set("n", "<leader><leader>", 
+vim.keymap.set("n", "<leader><leader>",
     function()
         vim.cmd("source")
     end,
@@ -54,3 +54,12 @@ vim.keymap.set("n", "<leader><leader>",
 vim.keymap.set("n", "<C-F>", "v%=%",
     { desc = "format within scope" }
 )
+
+
+
+
+
+
+
+
+
