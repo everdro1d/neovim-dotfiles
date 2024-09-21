@@ -1,5 +1,5 @@
 require('kanagawa').setup({
-    transparent = true,         -- do not set background color
+    transparent = false,         -- do not set background color
 })
 
 -- setup must be called before loading

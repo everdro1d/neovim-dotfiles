@@ -5,20 +5,21 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
 
+-- remap movement keys to dvorak
+vim.keymap.set("n", "t", "j")
+vim.keymap.set("n", "n", "k")
+vim.keymap.set("n", "s", "l")
+
 -- move highlighted code - try it
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "N", ":m '<-2<CR>gv=gv")
 
 -- let the cursor stay put while appending with 'J'
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "T", "mzJ`z")
 
 -- keep cursor in middle when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
--- keep cursor in middle when search scrolling
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
 
 -- preserve clipboard when replacing
 vim.keymap.set("x", "<leader>x", [["_dP]],
@@ -56,11 +57,3 @@ vim.keymap.set("n", "<C-F>", "v%=%",
 )
 
 vim.keymap.set("n", "<leader>pwS", "<nop>")
-
-
-
-
-
-
-
-

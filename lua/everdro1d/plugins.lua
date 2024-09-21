@@ -20,10 +20,6 @@ return {
 		build = ":TSUpdate",
 	},
 	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-	},
-	{
 		"nvim-treesitter/nvim-treesitter-context",
 		dependencies = {"nvim-treesitter/nvim-treesitter"},
 		config = function()
@@ -46,9 +42,6 @@ return {
 			vim.o.timeoutlen = 300
 		end,
 	},
-    {
-        "github/copilot.vim",
-    },
     {
         "neovim/nvim-lspconfig",
         dependencies = {
