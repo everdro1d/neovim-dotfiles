@@ -45,3 +45,23 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- remap mappings for netrw
+autocmd('filetype', {
+    pattern = "netrw",
+    desc = "set mappings for netrw",
+    callback = function ()
+        local bind = function (lhs, rhs)
+            vim.keymap.set("n", lhs, rhs, {remap = true, buffer = true})
+        end
+
+        -- dvorak movements
+        bind("h", "h")
+        bind("t", "j")
+        bind("n", "k")
+        bind("s", "l")
+
+        -- saner bindings
+        bind("u", "-")
+    end
+})

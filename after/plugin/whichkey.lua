@@ -34,12 +34,12 @@ wk.register({
 		p = "find git file (tele.)",
 		e = "open/close Harpoon menu",
 		h = "switch to Harpoon 1",
-		j = "switch to Harpoon 2",
-		k = "switch to Harpoon 3",
-		l = "switch to Harpoon 4",
+		t = "switch to Harpoon 2",
+		n = "switch to Harpoon 3",
+		s = "switch to Harpoon 4",
 		d = {
 			H = "switch to next buffer in Harpoon",
-			L = "switch to prev. buffer in Harpoon",
+			S = "switch to prev. buffer in Harpoon",
 		},
 	},
     -- must be in trouble window to use these

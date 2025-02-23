@@ -5,17 +5,23 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
 
--- remap movement keys to dvorak
-vim.keymap.set("n", "t", "j")
-vim.keymap.set("n", "n", "k")
-vim.keymap.set("n", "s", "l")
+-- map movement keys to dvorak
+vim.keymap.set({"n","v"}, "h", "h")
+vim.keymap.set({"n","v"}, "t", "j")
+vim.keymap.set({"n","v"}, "n", "k")
+vim.keymap.set({"n","v"}, "s", "l")
 
 -- move highlighted code - try it
 vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "N", ":m '<-2<CR>gv=gv")
+-- qwerty
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- let the cursor stay put while appending with 'J'
+-- let the cursor stay put while appending with 'T'
 vim.keymap.set("n", "T", "mzJ`z")
+-- qwerty
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- keep cursor in middle when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
