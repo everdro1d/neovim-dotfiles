@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 -- open explore
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>sm", vim.cmd.Ex)
 
 -- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
@@ -15,13 +15,13 @@ vim.keymap.set({"n","v"}, "s", "l")
 vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "N", ":m '<-2<CR>gv=gv")
 -- qwerty
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+--vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+--vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- let the cursor stay put while appending with 'T'
 vim.keymap.set("n", "T", "mzJ`z")
 -- qwerty
-vim.keymap.set("n", "J", "mzJ`z")
+--vim.keymap.set("n", "J", "mzJ`z")
 
 -- keep cursor in middle when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -45,9 +45,9 @@ vim.keymap.set("n", "<leader>Y", [["+Y]],
 -- replace all of current word in file
 vim.keymap.set(
     "n",
-    "<leader>s",
+    "<leader>r",
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "replace all highlighted" }
+    { desc = "replace all current word in file" }
 )
 
 -- reload source

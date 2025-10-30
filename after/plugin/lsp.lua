@@ -4,17 +4,18 @@ local capabilities = vim.tbl_deep_extend(
     "force",
     {},
     vim.lsp.protocol.make_client_capabilities(),
-    cmp_lsp.default_capabilities())
+    cmp_lsp.default_capabilities()
+)
 
 require("fidget").setup({})
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "rust_analyzer",
         "clangd",
-        "gopls",
         "marksman",
+        "rome",
+        "jdtls"
     },
     handlers = {
         function(server_name) -- default handler (optional)
@@ -32,7 +33,15 @@ require("mason-lspconfig").setup({
                     Lua = {
                         diagnostics = {
                             globals = { "vim", "it", "describe", "before_each", "after_each" },
-                        }
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = vim.api.nvim_get_runtime_file("", true),
+                        },
+                        -- Do not send telemetry data containing a randomized but unique identifier
+                        telemetry = {
+                            enable = false,
+                        },
                     }
                 }
             }
@@ -52,9 +61,9 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-t>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Enter>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
     sources = cmp.config.sources({

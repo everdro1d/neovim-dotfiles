@@ -6,7 +6,7 @@ return {
         "mbbill/undotree",
     },
 	{
-		"theprimeagen/harpoon",
+		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
@@ -17,6 +17,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+        branch = "master",
 		build = ":TSUpdate",
 	},
 	{
