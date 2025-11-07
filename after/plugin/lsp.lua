@@ -12,10 +12,9 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "clangd",
         "marksman",
-        "rome",
-        "jdtls"
+        "jdtls",
+        "nil_ls"
     },
     handlers = {
         function(server_name) -- default handler (optional)
