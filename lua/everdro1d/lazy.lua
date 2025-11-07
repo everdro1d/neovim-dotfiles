@@ -11,4 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("everdro1d.plugins")
+require("lazy").setup("everdro1d.plugins", {
+        root = vim.fn.stdpath("config") .. "/state/lazy",
+        lockfile = vim.fn.stdpath("config") .. "/state/lazy-lock.json",
+})
