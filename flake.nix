@@ -11,9 +11,9 @@
     };
 
     homeFiles = {
-      nvimConfig = {
-        source = ./.;
-        recursive = true;
+      nvimConfig = { config, pkgs, ... }: {
+        home.file.".config/nvim".source = ./.;
+        home.file.".config/nvim".recursive = true;
       };
     };
   };
