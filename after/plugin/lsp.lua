@@ -25,6 +25,7 @@ require("lazy-lsp").setup {
         "tailwindcss",                     -- associates with too many filetypes
         "biome",                           -- not mature enough to be default
         "oxlint",                          -- prefer eslint
+        "nixd",
     },
 
     preferred_servers = {
