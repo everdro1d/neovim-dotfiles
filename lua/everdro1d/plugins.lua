@@ -44,10 +44,9 @@ return {
 		end,
 	},
     {
-        "neovim/nvim-lspconfig",
+        "dundalek/lazy-lsp.nvim",
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig"
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -57,6 +56,8 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "j-hui/fidget.nvim",
         },
+        config = function()
+        end
     },
     {
         "danymat/neogen",
