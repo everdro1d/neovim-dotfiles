@@ -83,8 +83,12 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
+        -- dvorak
         ['<C-t>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        -- qwerty
+        ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-k>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-Enter>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     }),

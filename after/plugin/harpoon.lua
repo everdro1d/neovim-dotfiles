@@ -33,14 +33,16 @@ vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
 
 -- qwerty
---vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
---vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
---vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
---vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-H>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-S>", function() harpoon:list():next() end)
+-- qwerty
+vim.keymap.set("n", "<C-S-L>", function() harpoon:list():next() end)
 
 -- Fix Transparency with Harpoon window
 vim.api.nvim_create_autocmd({ "FileType" }, {

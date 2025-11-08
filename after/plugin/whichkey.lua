@@ -29,8 +29,6 @@ wk.add({
     { "<leader>vrr", desc = "references" },
     { "<tab>", group = "switch focus editor & undo tree" },
     { "K", desc = "show hover docs." },
-    { "[t", desc = "goto prev. trouble item" },
-    { "]t", desc = "goto next trouble item" },
     { "gd", desc = "go to definition" },
 })
 

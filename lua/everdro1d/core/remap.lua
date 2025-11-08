@@ -19,13 +19,13 @@ vim.keymap.set({"n","v"}, "s", "l")
 vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "N", ":m '<-2<CR>gv=gv")
 -- qwerty
---vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
---vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- let the cursor stay put while appending with 'T'
 vim.keymap.set("n", "T", "mzJ`z")
 -- qwerty
---vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- keep cursor in middle when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

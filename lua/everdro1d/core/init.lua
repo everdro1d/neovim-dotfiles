@@ -38,7 +38,7 @@ autocmd('filetype', {
     desc = "set mappings for netrw",
     callback = function ()
         local bind = function (lhs, rhs)
-            vim.keymap.set("n", lhs, rhs, {remap = true, buffer = true})
+            vim.keymap.set("n", lhs, rhs, {remap = false, buffer = true})
         end
 
         -- dvorak movements
