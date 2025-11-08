@@ -5,6 +5,10 @@ vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 -- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
 
+-- remap search movement keys
+vim.keymap.set('n', ']', 'n')
+vim.keymap.set('n', '[', 'N')
+
 -- map movement keys to dvorak
 vim.keymap.set({"n","v"}, "h", "h")
 vim.keymap.set({"n","v"}, "t", "j")
