@@ -12,7 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.hlsearch = false
-vim.opt. incsearch = true
+vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
