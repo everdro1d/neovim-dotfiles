@@ -51,3 +51,16 @@ autocmd('filetype', {
         bind("u", "-")
     end
 })
+
+autocmd("VimLeavePre", {
+    group = everdro1dGroup,
+    desc = "change working dir via netrw",
+    callback = function()
+        local cwd = vim.fn.getcwd()
+        local file = io.open(vim.fn.expand("~/.nvim_cwd"), "w")
+        if file then
+            file:write(cwd)
+            file:close()
+         end
+    end
+})
