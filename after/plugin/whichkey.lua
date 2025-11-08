@@ -20,7 +20,7 @@ wk.add({
     { "<leader>ps", desc = "find with grep string" },
     { "<leader>pw", desc = "find with grep word (vim)" },
     { "<leader>pws", desc = "find with grep WORD" },
-    { "<leader>sm", desc = "view file system" },
+    { "<leader>es", desc = "view file system" },
     { "<leader>tt", desc = "toggle trouble buffer" },
     { "<leader>u", desc = "show/hide undo tree" },
     { "<leader>v", group = "buffers" },
