@@ -46,7 +46,7 @@ return {
     {
         "dundalek/lazy-lsp.nvim",
         dependencies = {
-            "neovim/nvim-lspconfig"
+            "neovim/nvim-lspconfig",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -56,8 +56,6 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "j-hui/fidget.nvim",
         },
-        config = function()
-        end
     },
     {
         "danymat/neogen",
@@ -65,7 +63,7 @@ return {
             "nvim-treesitter/nvim-treesitter",
             "L3MON4D3/LuaSnip",
         },
-        version = "*"
+        version = "*",
     },
     {
         "folke/trouble.nvim",
