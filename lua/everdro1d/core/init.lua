@@ -37,18 +37,18 @@ autocmd('filetype', {
     pattern = "netrw",
     desc = "set mappings for netrw",
     callback = function ()
-        local bind = function (lhs, rhs)
-            vim.keymap.set("n", lhs, rhs, {remap = false, buffer = true})
+        local bind = function (lhs, rhs, remap)
+            vim.keymap.set("n", lhs, rhs, {remap = remap, buffer = true})
         end
 
         -- dvorak movements
-        bind("h", "h")
-        bind("t", "j")
-        bind("n", "k")
-        bind("s", "l")
+        bind("h", "h",false)
+        bind("t", "j",false)
+        bind("n", "k",false)
+        bind("s", "l",false)
 
         -- saner bindings
-        bind("u", "-")
+        bind("u", "-",true)
     end
 })
 
@@ -56,6 +56,7 @@ autocmd("VimLeavePre", {
     group = everdro1dGroup,
     desc = "change working dir via netrw",
     callback = function()
+        vim.cmd('cd %:p:h')
         local cwd = vim.fn.getcwd()
         local file = io.open(vim.fn.expand("~/.nvim_cwd"), "w")
         if file then
