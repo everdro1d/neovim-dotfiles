@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 -- open explore
-vim.keymap.set("n", "<leader>sm", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 
 -- save file in normal mode and insert
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
