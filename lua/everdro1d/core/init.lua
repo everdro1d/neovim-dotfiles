@@ -7,6 +7,8 @@ local everdro1dGroup = augroup('everdro1d', {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
+local filetype_indentations = augroup('filetype_indentations', { clear = true })
+
 function R(name)
     require("plenary.reload").reload_module(name)
 end
@@ -26,6 +28,16 @@ autocmd({"BufWritePre"}, {
     group = everdro1dGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
+})
+
+autocmd('FileType', {
+    group = filetype_indentations,
+    pattern = "nix",
+    callback = function ()
+        vim.opt_local.tabstop = 2
+        vim.opt.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+    end,
 })
 
 vim.g.netrw_browse_split = 0
