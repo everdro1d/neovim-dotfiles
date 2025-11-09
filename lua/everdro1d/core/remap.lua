@@ -6,8 +6,8 @@ vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
 
 -- remap search movement keys
-vim.keymap.set('n', 'm', 'n')
-vim.keymap.set('n', 'M', 'N')
+vim.keymap.set('n', '<PageUp>', 'n')
+vim.keymap.set('n', '<PageDown>', 'N')
 
 -- map movement keys to dvorak
 vim.keymap.set({"n","v"}, "h", "h")
