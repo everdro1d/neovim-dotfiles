@@ -32,7 +32,7 @@ autocmd({"BufWritePre"}, {
 
 autocmd('FileType', {
     group = filetype_indentations,
-    pattern = "nix",
+    pattern = { "nix", "css" },
     callback = function ()
         vim.opt_local.tabstop = 2
         vim.opt.softtabstop = 2
