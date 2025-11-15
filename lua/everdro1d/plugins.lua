@@ -31,11 +31,6 @@ return {
 		"mfussenegger/nvim-dap",
 	},
 	{
-		"mrcjkb/rustaceanvim",
-		version = '^4', -- Recommended
-		ft = { 'rust' },
-	},
-	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function()
