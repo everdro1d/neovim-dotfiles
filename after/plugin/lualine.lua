@@ -35,7 +35,7 @@ ll.setup {
     },
     sections = {
       lualine_a = { { 'mode', fmt = function(str) return str:sub(1,1) end } },
-      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_b = {'branch', 'diff', { 'diagnostics', icons_enabled = false, symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' }, } },
       lualine_c = {'filename'},
       lualine_x = {'encoding', { 'filetype', icons_enabled = false, } },
       lualine_y = {'progress'},
