@@ -71,4 +71,7 @@ return {
         "nvim-tree/nvim-web-devicons",
         opts = {}
     },
+    {
+        'brenoprata10/nvim-highlight-colors'
+    },
 }

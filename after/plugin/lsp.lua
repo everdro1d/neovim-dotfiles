@@ -6,6 +6,7 @@ local capabilities = vim.tbl_deep_extend(
     vim.lsp.protocol.make_client_capabilities(),
     cmp_lsp.default_capabilities()
 )
+
 local on_attach = function(e)
     local opts = { buffer = e.buf }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -77,6 +78,9 @@ require("lazy-lsp").setup {
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
+    formatting = {
+        format = require("nvim-highlight-colors").format
+    },
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
