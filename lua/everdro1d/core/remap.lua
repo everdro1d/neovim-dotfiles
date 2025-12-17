@@ -55,11 +55,23 @@ vim.keymap.set(
 )
 
 -- reload source
+-- vim.keymap.set("n", "<leader><leader>",
+--     function()
+--         vim.cmd("source")
+--     end,
+--     { desc = "reload source" }
+-- )
 vim.keymap.set("n", "<leader><leader>",
     function()
-        vim.cmd("source")
+        local ft = vim.bo.filetype
+        if ft == "vim" or ft == "lua" then
+            vim.cmd("source")
+            print("Sourced " .. vim.fn.expand("%"))
+        else
+            print("Not a Vim/Lua file; Nothing sourced")
+        end
     end,
-    { desc = "reload source" }
+    { desc = "reload current nvim config file" }
 )
 
 vim.keymap.set("n", "<C-F>", "v%=%",
