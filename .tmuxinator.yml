@@ -1,0 +1,13 @@
+# ./.tmuxinator.yml
+
+name: neovim-dotfiles
+root: <%= ENV["PROJECTS"] %>/neovim-dotfiles/
+
+startup_window: editor
+
+windows:
+  - editor: nvim .
+  - term:
+  - git-lg: lazygit
+  - flake-term:
+      root: <%= ENV["NIX_DOTFILES"] %>
