@@ -97,6 +97,8 @@ require("lazy-lsp").setup {
             debounce_text_changes = 150,
         },
 
+        root_markers = { '.git' },
+
         on_attach = on_attach,
 
         capabilities = capabilities,
@@ -131,7 +133,7 @@ vim.diagnostic.config({
         focusable = false,
         style = "minimal",
         border = "rounded",
-        source = "always",
+        source = true,
         header = "",
         prefix = "",
     },
