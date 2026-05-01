@@ -7,6 +7,7 @@ local capabilities = vim.tbl_deep_extend(
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 0
 vim.o.pumheight = 7
+vim.o.pumborder = "rounded"
 
 local on_attach = function(e, client, bufnr)
     local opts = { buffer = e.buf }
