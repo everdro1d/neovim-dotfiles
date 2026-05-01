@@ -71,10 +71,10 @@ autocmd("VimLeavePre", {
     callback = function()
         vim.cmd('cd %:p:h')
         local cwd = vim.fn.getcwd()
-        local file = io.open(vim.fn.expand("~/.nvim_cwd"), "w")
+        local file = io.open(vim.fn.expand("/tmp/nvim_cwd"), "w")
         if file then
             file:write(cwd)
             file:close()
-         end
+        end
     end
 })
