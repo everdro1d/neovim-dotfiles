@@ -1,13 +1,14 @@
-local cmp = require('cmp')
-local cmp_lsp = require("cmp_nvim_lsp")
 local capabilities = vim.tbl_deep_extend(
     "force",
     {},
-    vim.lsp.protocol.make_client_capabilities(),
-    cmp_lsp.default_capabilities()
+    vim.lsp.protocol.make_client_capabilities()
 )
 
-local on_attach = function(e)
+vim.o.autocomplete = true
+vim.o.autocompletedelay = 0
+vim.o.pumheight = 7
+
+local on_attach = function(e, client, bufnr)
     local opts = { buffer = e.buf }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -15,7 +16,56 @@ local on_attach = function(e)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("n", "<leader>vih", function()
+        local current = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+        vim.lsp.inlay_hint.enable(not current, { bufnr = 0 })
+    end, { desc = 'Toggle inlay hints' })
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    local client_id = type(client) == "number" and client or client.id
+    local client_obj = vim.lsp.get_client_by_id(client_id)
+
+    if client_obj and client_obj:supports_method('textDocument/completion') then
+        vim.lsp.completion.enable(true, client_id, bufnr, {
+            autotrigger = true,
+            convert = function(item)
+                return {
+                    abbr = item.label:gsub("%b()", ""),
+                    menu = item.detail or "",
+                    info = item.documentation or "",
+                }
+            end,
+            cmp = function(a, b)
+                -- Prioritize items starting with underscore lower
+                local a_underscore = a.word:match('^_')
+                local b_underscore = b.word:match('^_')
+
+                if a_underscore ~= b_underscore then
+                    return b_underscore
+                end
+
+                -- Fall back to default sort
+                local item_a = a.user_data.nvim.lsp.completion_item
+                local item_b = b.user_data.nvim.lsp.completion_item
+                return (item_a.sortText or item_a.label) < (item_b.sortText or item_b.label)
+            end
+        })
+    end
+
+    -- dvorak
+    vim.keymap.set("i", "<C-t>", "<C-p>", { desc = "select previous completion" })
+    vim.keymap.set("i", "<C-n>", "<C-n>", { desc = "select next completion" })
+    -- qwerty
+    vim.keymap.set("i", "<C-j>", "<C-p>", { desc = "select previous completion" })
+    vim.keymap.set("i", "<C-k>", "<C-n>", { desc = "select next completion" })
+
+    vim.keymap.set("i", "<C-Enter>", "<C-y>", { desc = "accept completion" })
+    vim.keymap.set("i", "<C-space>", function()
+        vim.lsp.completion.get()
+    end, { desc = "trigger autocompletion" })
+
+    -- force select first option
+    vim.opt.completeopt = { "menuone", "noinsert", "popup" }
 end
 
 require("fidget").setup({})
@@ -74,36 +124,6 @@ require("lazy-lsp").setup {
     }),
     prefer_local = true, -- Prefer locally installed servers over nix-shell (default: true)
 }
-
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-cmp.setup({
-    formatting = {
-        format = require("nvim-highlight-colors").format
-    },
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        end,
-    },
-    mapping = cmp.mapping.preset.insert({
-        -- dvorak
-        ['<C-t>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        -- qwerty
-        ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-k>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-Enter>'] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-    }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-    },
-    {
-        { name = 'buffer' },
-    })
-})
 
 vim.diagnostic.config({
     -- update_in_insert = true,
