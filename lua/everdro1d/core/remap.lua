@@ -54,13 +54,6 @@ vim.keymap.set(
     { desc = "replace all current word in file" }
 )
 
--- reload source
--- vim.keymap.set("n", "<leader><leader>",
---     function()
---         vim.cmd("source")
---     end,
---     { desc = "reload source" }
--- )
 vim.keymap.set("n", "<leader><leader>",
     function()
         local ft = vim.bo.filetype
