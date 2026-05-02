@@ -53,9 +53,15 @@ local on_attach = function(e, client, bufnr)
                     return b_underscore
                 end
 
-                -- Fall back to default sort
-                local item_a = a.user_data.nvim.lsp.completion_item
-                local item_b = b.user_data.nvim.lsp.completion_item
+                -- Safely extract completion_item to prevent nil indexing
+                local item_a = vim.tbl_get(a, 'user_data', 'nvim', 'lsp', 'completion_item')
+                local item_b = vim.tbl_get(b, 'user_data', 'nvim', 'lsp', 'completion_item')
+
+                -- Fallback comparison if either item is missing the LSP completion item data
+                if not item_a or not item_b then
+                    return a.word < b.word
+                end
+
                 return (item_a.sortText or item_a.label) < (item_b.sortText or item_b.label)
             end
         })
