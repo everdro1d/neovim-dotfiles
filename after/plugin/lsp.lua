@@ -79,6 +79,7 @@ local on_attach = function(e, client, bufnr)
         vim.lsp.completion.get()
     end, { desc = "trigger autocompletion" })
 
+
     -- force select first option
     vim.opt.completeopt = { "menuone", "noinsert", "popup" }
 end
@@ -130,6 +131,12 @@ require("lazy-lsp").setup {
                 workspace = {
                     -- Make the server aware of Neovim runtime files
                     library = vim.api.nvim_get_runtime_file("", true),
+
+                    -- Add heavy directories to ignore
+                    ignoreDir = {
+                        '.git',
+                        'state'
+                    },
                 },
 
                 -- Do not send telemetry data containing a randomized but unique identifier
@@ -143,7 +150,7 @@ require("lazy-lsp").setup {
 }
 
 vim.diagnostic.config({
-    -- update_in_insert = true,
+    update_in_insert = false,
     float = {
         focusable = false,
         style = "minimal",
@@ -153,3 +160,4 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
+
