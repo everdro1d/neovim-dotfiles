@@ -24,6 +24,11 @@ local on_attach = function(e, client, bufnr)
         local current = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
         vim.lsp.inlay_hint.enable(not current, { bufnr = bufnr })
     end, { desc = "toggle inlay hints" })
+    vim.keymap.set("n", "<leader>vcl", function()
+        local current = vim.lsp.codelens.is_enabled({ bufnr = bufnr })
+        vim.lsp.codelens.enable(not current, { bufnr = bufnr })
+    end, { desc = "toggle code lens" })
+
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     local client_id = type(client) == "number" and client or client.id
