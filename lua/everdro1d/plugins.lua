@@ -16,18 +16,6 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-        branch = "master",
-		build = ":TSUpdate",
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = {"nvim-treesitter/nvim-treesitter"},
-		config = function()
-			require("treesitter-context").setup()
-		end
-	},
-	{
 		"mfussenegger/nvim-dap",
 	},
 	{
@@ -42,34 +30,19 @@ return {
         "dundalek/lazy-lsp.nvim",
         dependencies = {
             "neovim/nvim-lspconfig",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/nvim-cmp",
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
             "j-hui/fidget.nvim",
         },
     },
     {
         "danymat/neogen",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "L3MON4D3/LuaSnip",
-        },
         version = "*",
     },
     {
         "folke/trouble.nvim",
     },
     {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
-        opts = {}
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
     {
         'brenoprata10/nvim-highlight-colors'
