@@ -3,7 +3,6 @@ vim.api.nvim_create_autocmd('FileType', {
         "c"
         ,"java"
         ,"python"
-        ,"rust"
 
         ,"bash"
         ,"lua"
