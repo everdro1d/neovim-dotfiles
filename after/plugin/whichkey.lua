@@ -1,6 +1,20 @@
 local wk = require("which-key")
 
+wk.setup({
+    preset = "classic",
+    win = {
+        wo = {
+            winblend = 10,
+        },
+    },
+    keys = {
+        scroll_down = "<M-d>", -- binding to scroll down inside the popup
+        scroll_up = "<M-u>", -- binding to scroll up inside the popup
+    },
+})
+
 wk.add({
+    { "<leader>e", group = "netrw" },
     { "<leader>es", desc = "view file system" },
 
     { "<C>p", desc = "find git file (tele.)" },
@@ -26,8 +40,7 @@ wk.add({
     { "<leader>pw", desc = "find with grep word (vim)" },
     { "<leader>pws", desc = "find with grep WORD" },
 
-
-    { "<leader>tt", desc = "toggle trouble buffer" },
+    { "<leader>t", group = "trouble & tree-sitter" },
 
     { "<leader>v", group = "buffers" },
     { "<leader>vca", desc = "code actions" },
@@ -35,10 +48,15 @@ wk.add({
     { "<leader>vrr", desc = "references" },
 
     { "<leader>u", desc = "show/hide undo tree" },
-    { "<tab>", group = "switch focus editor & undo tree" },
+    { "<tab>", desc = "switch focus editor & undo tree" },
 
     { "K", desc = "show hover docs." },
     { "gd", desc = "go to definition" },
+    { "Y", desc = "Yank to end of line" },
+    { "&", desc = "repeat last substitution" },
+
+    { "T", desc = "append the next line" },
+    { "J", desc = "append the next line" },
 
     { "<leader>f", group = "folding" },
     { "<leader>ff", desc = "fold selection (manual mode)" },
