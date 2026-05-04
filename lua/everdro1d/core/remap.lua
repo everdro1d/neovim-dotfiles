@@ -71,4 +71,20 @@ vim.keymap.set("n", "<C-F>", "v%=%",
     { desc = "format within scope" }
 )
 
-vim.keymap.set("n", "<leader>pwS", "<nop>")
+-- Folding map - rebind for use in which-key organization help
+
+vim.keymap.set("n", "<leader>ff", "zf")
+vim.keymap.set("n", "<leader>fa", "za")
+vim.keymap.set("n", "<leader>fA", "zA")
+vim.keymap.set("n", "<leader>fo", "zo")
+vim.keymap.set("n", "<leader>fO", "zO")
+vim.keymap.set("n", "<leader>fc", "zc")
+vim.keymap.set("n", "<leader>fC", "zC")
+vim.keymap.set("n", "<leader>fr", "zr")
+vim.keymap.set("n", "<leader>fR", "zR")
+vim.keymap.set("n", "<leader>fm", "zm")
+vim.keymap.set("n", "<leader>fM", "zM")
+vim.keymap.set("n", "<leader>fn", "zn")
+vim.keymap.set("n", "<leader>fN", "zN")
+vim.keymap.set("n", "<leader>fi", "zi")
+vim.keymap.set("n", "<leader>fx", "zx")
