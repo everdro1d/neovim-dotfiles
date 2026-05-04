@@ -27,6 +27,9 @@ return {
 		end,
 	},
     {
+        "romus204/tree-sitter-manager.nvim",
+    },
+    {
         "dundalek/lazy-lsp.nvim",
         dependencies = {
             "neovim/nvim-lspconfig",
