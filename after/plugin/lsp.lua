@@ -80,7 +80,7 @@ local on_attach = function(e, client, bufnr)
     end, { desc = "trigger autocompletion" })
 
 
-    -- force select first option
+    -- attempt to force select first option
     vim.opt.completeopt = { "menuone", "noinsert", "popup" }
 end
 
