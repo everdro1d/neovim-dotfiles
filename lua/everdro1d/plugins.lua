@@ -53,4 +53,8 @@ return {
     {
         'andymass/vim-matchup'
     },
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+    },
 }
