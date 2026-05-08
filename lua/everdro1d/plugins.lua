@@ -50,4 +50,7 @@ return {
     {
         'brenoprata10/nvim-highlight-colors'
     },
+    {
+        'andymass/vim-matchup'
+    },
 }
