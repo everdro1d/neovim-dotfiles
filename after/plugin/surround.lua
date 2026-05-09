@@ -4,25 +4,25 @@ vim.g.nvim_surround_no_mappings = true
 require("nvim-surround").setup({
 
     -- rebind mappings
-    vim.keymap.set("n", "gsas", "<Plug>(nvim-surround-normal)", {
+    vim.keymap.set("n", "gsa", "<Plug>(nvim-surround-normal)", {
         desc = "Add a surrounding pair around a motion (normal mode)",
     }),
-    vim.keymap.set("n", "gsass", "<Plug>(nvim-surround-normal-cur)", {
+    vim.keymap.set("n", "gsas", "<Plug>(nvim-surround-normal-cur)", {
         desc = "Add a surrounding pair around the current line (normal mode)",
     }),
-    vim.keymap.set("n", "gsaS", "<Plug>(nvim-surround-normal-line)", {
+    vim.keymap.set("n", "gsA", "<Plug>(nvim-surround-normal-line)", {
         desc = "Add a surrounding pair around a motion, on new lines (normal mode)",
     }),
-    vim.keymap.set("n", "gsaSS", "<Plug>(nvim-surround-normal-cur-line)", {
+    vim.keymap.set("n", "gsAS", "<Plug>(nvim-surround-normal-cur-line)", {
         desc = "Add a surrounding pair around the current line, on new lines (normal mode)",
     }),
-    vim.keymap.set("n", "gsds", "<Plug>(nvim-surround-delete)", {
+    vim.keymap.set("n", "gsd", "<Plug>(nvim-surround-delete)", {
         desc = "Delete a surrounding pair",
     }),
-    vim.keymap.set("n", "gscs", "<Plug>(nvim-surround-change)", {
+    vim.keymap.set("n", "gsc", "<Plug>(nvim-surround-change)", {
         desc = "Change a surrounding pair",
     }),
-    vim.keymap.set("n", "gscS", "<Plug>(nvim-surround-change-line)", {
+    vim.keymap.set("n", "gsC", "<Plug>(nvim-surround-change-line)", {
         desc = "Change a surrounding pair, putting replacements on new lines",
     }),
 

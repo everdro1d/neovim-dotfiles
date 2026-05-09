@@ -59,9 +59,6 @@ wk.add({
     { "J", desc = "append the next line" },
 
     { "gs", group = "surround" },
-    { "gsa", group = "add" },
-    { "gsd", group = "delete" },
-    { "gsc", group = "change" },
 
     { "<leader>f", group = "folding" },
     { "<leader>ff", desc = "fold selection (manual mode)" },
