@@ -12,6 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("everdro1d.plugins", {
-        root = vim.fn.stdpath("config") .. "/state/lazy",
+        root = vim.fn.stdpath("data") .. "/state/lazy",
         lockfile = vim.fn.stdpath("config") .. "/state/lazy-lock.json",
 })
