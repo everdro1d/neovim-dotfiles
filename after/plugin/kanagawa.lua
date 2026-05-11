@@ -1,5 +1,5 @@
 require('kanagawa').setup({
-    transparent = true,         -- do not set background color
+    transparent = false,         -- do not set background color
     styles = {
         sidebars = "transparent",
         floats = "transparent",
@@ -12,9 +12,9 @@ require('kanagawa').setup({
         end
 
         return {
-            --NormalFloat = { bg = "none" },
-            --FloatBorder = { bg = "none" },
-            --FloatTitle = { bg = "none" },
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+            FloatTitle = { bg = "none" },
 
             Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1, blend = vim.o.pumblend },  -- add `blend = vim.o.pumblend` to enable transparency
             PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
