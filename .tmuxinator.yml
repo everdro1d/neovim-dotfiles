@@ -5,7 +5,7 @@ root: <%= ENV["PROJECTS"] %>/neovim-dotfiles/
 
 on_project_start: ./setup-testing.sh
 startup_window: editor
-on_project_stop: rm -i ~/.config/nvim
+on_project_stop: rm ~/.config/nvim && notify-send "Removed Links" "nvim config no longer shows live changes. remember to rebuild."
 
 windows:
   - editor: nvim .
