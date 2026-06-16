@@ -35,6 +35,10 @@ return {
             "neovim/nvim-lspconfig",
             "j-hui/fidget.nvim",
         },
+		enabled = function()
+			-- disable on windows due to nix dependency
+			return vim.fn.has("win32") == 0 and vim.fn.has("win64") == 0
+		end,
     },
     {
         "danymat/neogen",

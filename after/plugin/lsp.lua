@@ -84,70 +84,74 @@ local on_attach = function(e, client, bufnr)
     vim.opt.completeopt = { "menuone", "noinsert", "popup" }
 end
 
-require("fidget").setup({})
-require("lazy-lsp").setup {
-    use_vim_lsp_config = true,
+local is_win = vim.fn.has("win32") == 1 and vim.fn.has("win64") == 1
 
-    excluded_servers = {
-        "ccls",                            -- prefer clangd
-        "denols",                          -- prefer eslint and ts_ls
-        "docker_compose_language_service", -- yamlls should be enough?
-        "flow",                            -- prefer eslint and ts_ls
-        "ltex",                            -- grammar tool using too much CPU
-        "quick_lint_js",                   -- prefer eslint and ts_ls
-        "scry",                            -- archived on Jun 1, 2023
-        "tailwindcss",                     -- associates with too many filetypes
-        "biome",                           -- not mature enough to be default
-        "oxlint",                          -- prefer eslint
-        "nixd",
-    },
+if not is_win then
+	require("fidget").setup({})
+	require("lazy-lsp").setup {
+		use_vim_lsp_config = true,
 
-    preferred_servers = {
-        markdown = {},
-        python = { "basedpyright", "ruff" },
-    },
+		excluded_servers = {
+			"ccls",                            -- prefer clangd
+			"denols",                          -- prefer eslint and ts_ls
+			"docker_compose_language_service", -- yamlls should be enough?
+			"flow",                            -- prefer eslint and ts_ls
+			"ltex",                            -- grammar tool using too much CPU
+			"quick_lint_js",                   -- prefer eslint and ts_ls
+			"scry",                            -- archived on Jun 1, 2023
+			"tailwindcss",                     -- associates with too many filetypes
+			"biome",                           -- not mature enough to be default
+			"oxlint",                          -- prefer eslint
+			"nixd",
+		},
 
-    -- default config
-    vim.lsp.config("*", {
-        flags = {
-            debounce_text_changes = 150,
-        },
+		preferred_servers = {
+			markdown = {},
+			python = { "basedpyright", "ruff" },
+		},
 
-        root_markers = { '.git' },
+		-- default config
+		vim.lsp.config("*", {
+			flags = {
+				debounce_text_changes = 150,
+			},
 
-        on_attach = on_attach,
+			root_markers = { '.git' },
 
-        capabilities = capabilities,
-    }),
+			on_attach = on_attach,
 
-    -- lua config
-    vim.lsp.config("lua_ls", {
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                },
+			capabilities = capabilities,
+		}),
 
-                workspace = {
-                    -- Make the server aware of Neovim runtime files
-                    library = vim.api.nvim_get_runtime_file("", true),
+		-- lua config
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim", "it", "describe", "before_each", "after_each" },
+					},
 
-                    -- Add heavy directories to ignore
-                    ignoreDir = {
-                        '.git',
-                        'state'
-                    },
-                },
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
 
-                -- Do not send telemetry data containing a randomized but unique identifier
-                telemetry = {
-                    enable = false,
-                },
-            },
-        },
-    }),
-    prefer_local = true, -- Prefer locally installed servers over nix-shell (default: true)
-}
+						-- Add heavy directories to ignore
+						ignoreDir = {
+							'.git',
+							'state'
+						},
+					},
+
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+				},
+			},
+		}),
+		prefer_local = true, -- Prefer locally installed servers over nix-shell (default: true)
+	}
+end
 
 vim.diagnostic.config({
     update_in_insert = false,
