@@ -71,7 +71,7 @@ wk.add({
     { "<leader>fr", desc = "open top level folds" },
     { "<leader>fR", desc = "open all folds in file" },
     { "<leader>fm", desc = "close top level folds" },
-    { "<leader>fM", desc = "open all folds in file" },
+    { "<leader>fM", desc = "close all folds in file" },
     { "<leader>fn", desc = "disable active folds" },
     { "<leader>fN", desc = "enable previously active folds" },
     { "<leader>fi", desc = "toggle active folds" },
