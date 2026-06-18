@@ -61,4 +61,14 @@ return {
         "kylechui/nvim-surround",
         event = "VeryLazy",
     },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+    },
 }
