@@ -16,6 +16,7 @@ wk.setup({
 wk.add({
     { "<leader>e", group = "netrw" },
     { "<leader>es", desc = "view file system" },
+    { "<leader>ps", desc = "view projects list" },
 
     { "<C>p", desc = "find git file (tele.)" },
 
@@ -36,7 +37,7 @@ wk.add({
     { "<leader>pW", desc = "find with grep WORD (vim.opt)" },
     { "<leader>pWs", desc = "find with grep WORD" },
     { "<leader>pf", desc = "find file (tele.)" },
-    { "<leader>ps", desc = "find with grep string" },
+    { "<leader>pg", desc = "find with grep string" },
     { "<leader>pw", desc = "find with grep word (vim)" },
     { "<leader>pws", desc = "find with grep WORD" },
 
