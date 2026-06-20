@@ -1,6 +1,6 @@
+require("everdro1d.core.modules")
 require("everdro1d.core.remap")
 require("everdro1d.core.set")
-require("everdro1d.core.gui")
 
 local augroup = vim.api.nvim_create_augroup
 local everdro1dGroup = augroup('everdro1d', {})
