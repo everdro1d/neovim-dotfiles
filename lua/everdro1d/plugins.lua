@@ -65,9 +65,6 @@ return {
             'nvim-telescope/telescope.nvim',
         },
     },
-	{
-		"mfussenegger/nvim-dap",
-	},
 
 
     -- LSP, Tree-sitter, code-generation, etc. --
