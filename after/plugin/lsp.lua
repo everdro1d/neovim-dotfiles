@@ -4,11 +4,6 @@ local capabilities = vim.tbl_deep_extend(
     vim.lsp.protocol.make_client_capabilities()
 )
 
-vim.o.autocomplete = true
-vim.o.autocompletedelay = 0
-vim.o.pumheight = 7
-vim.o.pumborder = "rounded"
-
 local on_attach = function(e, client, bufnr)
     local opts = { buffer = e.buf }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -78,10 +73,6 @@ local on_attach = function(e, client, bufnr)
     vim.keymap.set("i", "<C-space>", function()
         vim.lsp.completion.get()
     end, { desc = "trigger autocompletion" })
-
-
-    -- attempt to force select first option
-    vim.opt.completeopt = { "menuone", "noinsert", "popup" }
 end
 
 local is_win = vim.fn.has("win32") == 1 and vim.fn.has("win64") == 1
