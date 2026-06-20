@@ -46,8 +46,8 @@ vim.keymap.set("n", "<C-S-L>", function() harpoon:list():next() end)
 
 -- Fix Transparency with Harpoon window
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = "harpoon",
-	callback = function()
-		vim.opt.winblend = 20 -- 0 ~ 100
-	end,
+    pattern = "harpoon",
+    callback = function()
+        vim.opt.winblend = 20 -- 0 ~ 100
+    end,
 })
