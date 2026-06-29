@@ -107,7 +107,7 @@ if not is_win then
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim", "it", "describe", "before_each", "after_each" },
+						globals = { "vim", "it", "describe", "before_each", "after_each", "hl" },
 					},
 
 					workspace = {
