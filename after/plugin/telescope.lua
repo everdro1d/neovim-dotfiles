@@ -63,3 +63,6 @@ end)
 vim.keymap.set('n', '<leader>ps', function()
     require'telescope'.extensions.project.project{ display_type = 'full', hide_workspace = true }
 end)
+vim.keymap.set('n', '<leader>pr', function()
+    builtin.oldfiles()
+end)

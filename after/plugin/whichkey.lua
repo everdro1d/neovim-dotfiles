@@ -37,6 +37,7 @@ wk.add({
     { "<leader>pW", desc = "find with grep WORD (vim.opt)" },
     { "<leader>pWs", desc = "find with grep WORD" },
     { "<leader>pf", desc = "find file (tele.)" },
+    { "<leader>pr", desc = "view recently opened files" },
     { "<leader>pg", desc = "find with grep string" },
     { "<leader>pw", desc = "find with grep word (vim)" },
     { "<leader>pws", desc = "find with grep WORD" },
