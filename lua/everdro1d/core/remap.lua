@@ -48,6 +48,9 @@ vim.keymap.set({"v"}, "<C-c>", [["+y]],
     { desc = "yank to system clipboard" })
 vim.keymap.set({"i", "c"}, "<C-v>", [[<C-r>+]],
     { desc = "paste from system clipboard" })
+-- select all
+vim.keymap.set({"n"}, "<C-a>", "ggVG",
+    { desc = "select all lines" })
 
 -- replace all of current word in file
 vim.keymap.set(
