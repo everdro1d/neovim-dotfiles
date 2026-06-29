@@ -73,12 +73,15 @@ vim.keymap.set("n", "<leader><leader>",
     { desc = "reload current nvim config file" }
 )
 
-vim.keymap.set("n", "<C-F>", "v%=%",
+-- Formatting (maintains cursor position)
+vim.keymap.set("n", "<C-F>", "mz v%=% `z",
+    { desc = "format within scope" }
+)
+vim.keymap.set("n", "<C-S-F>", "mz ggVG= `z",
     { desc = "format within scope" }
 )
 
 -- Folding map - rebind for use in which-key organization help
-
 vim.keymap.set("n", "<leader>ff", "zf")
 vim.keymap.set("n", "<leader>fa", "za")
 vim.keymap.set("n", "<leader>fA", "zA")
