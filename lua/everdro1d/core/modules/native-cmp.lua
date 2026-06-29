@@ -10,3 +10,15 @@ vim.api.nvim_create_autocmd("BufNew", {
         if vim.bo[ev.buf].buftype ~= "" then vim.bo[ev.buf].autocomplete = false end
     end,
 })
+
+-- Completion Keybinds
+-- dvorak
+vim.keymap.set("i", "<C-n>", "<C-p>", { desc = "select previous completion" })
+vim.keymap.set("i", "<C-t>", "<C-n>", { desc = "select next completion" })
+-- qwerty
+vim.keymap.set("i", "<C-k>", "<C-p>", { desc = "select previous completion" })
+vim.keymap.set("i", "<C-j>", "<C-n>", { desc = "select next completion" })
+
+vim.keymap.set("i", "<C-Enter>", "<C-y>", { desc = "accept completion" })
+
+vim.keymap.set("i", "<C-space>", "<C-X><C-O>", { desc = "trigger autocompletion (local|lsp)" })

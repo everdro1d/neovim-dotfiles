@@ -61,18 +61,6 @@ local on_attach = function(e, client, bufnr)
             end
         })
     end
-
-    -- dvorak
-    vim.keymap.set("i", "<C-t>", "<C-p>", { desc = "select previous completion" })
-    vim.keymap.set("i", "<C-n>", "<C-n>", { desc = "select next completion" })
-    -- qwerty
-    vim.keymap.set("i", "<C-j>", "<C-p>", { desc = "select previous completion" })
-    vim.keymap.set("i", "<C-k>", "<C-n>", { desc = "select next completion" })
-
-    vim.keymap.set("i", "<C-Enter>", "<C-y>", { desc = "accept completion" })
-    vim.keymap.set("i", "<C-space>", function()
-        vim.lsp.completion.get()
-    end, { desc = "trigger autocompletion" })
 end
 
 local is_win = vim.fn.has("win32") == 1 and vim.fn.has("win64") == 1
