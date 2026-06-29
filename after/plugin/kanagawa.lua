@@ -12,7 +12,7 @@ require('kanagawa').setup({
         end
 
         return {
-            NormalFloat = { bg = "none" },
+            NormalFloat = { bg = theme.ui.bg },
             FloatBorder = { bg = "none" },
             FloatTitle = { bg = "none" },
 
