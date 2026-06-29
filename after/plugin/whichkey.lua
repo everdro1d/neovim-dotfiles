@@ -34,13 +34,13 @@ wk.add({
     { "<leader>nt", desc = "type" },
 
     { "<leader>p", group = "in project" },
-    { "<leader>pW", desc = "find with grep WORD (vim.opt)" },
-    { "<leader>pWs", desc = "find with grep WORD" },
     { "<leader>pf", desc = "find file (tele.)" },
     { "<leader>pr", desc = "view recently opened files" },
     { "<leader>pg", desc = "find with grep string" },
-    { "<leader>pw", desc = "find with grep word (vim)" },
+    { "<leader>pw", desc = "find with grep word (only word)" },
     { "<leader>pws", desc = "find with grep WORD" },
+    { "<leader>pW", desc = "find with grep WORD (non-interrupting word)" },
+    { "<leader>pWs", desc = "find with grep WORD" },
 
     { "<leader>t", group = "trouble & tree-sitter" },
 
