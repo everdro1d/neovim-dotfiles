@@ -31,13 +31,11 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- preserve clipboard when replacing
+-- preserve clipboard when replacing and deleting
 vim.keymap.set("x", "<leader>x", [["_dP]],
-    { desc = "preserve clipboard replace" })
-
--- delete to void register (dont copy on delete)
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d",
-    { desc = "delete to void reg." })
+    { desc = "preserve clip. replace (void reg.)" })
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]],
+    { desc = "preserve clip. delete (void reg.)" })
 
 -- yank to system clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]],
