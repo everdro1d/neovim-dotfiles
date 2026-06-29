@@ -1,3 +1,4 @@
+vim.o.complete = ".,w,b,o"
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 0
 vim.o.pumheight = 7
@@ -22,3 +23,4 @@ vim.keymap.set("i", "<C-j>", "<C-n>", { desc = "select next completion" })
 vim.keymap.set("i", "<C-Enter>", "<C-y>", { desc = "accept completion" })
 
 vim.keymap.set("i", "<C-space>", "<C-X><C-O>", { desc = "trigger autocompletion (local|lsp)" })
+vim.keymap.set("i", "<C-F>", "<C-X><C-F>", { desc = "file path autocompletion" })
