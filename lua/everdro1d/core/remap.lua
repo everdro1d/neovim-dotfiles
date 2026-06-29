@@ -42,7 +42,6 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]],
     { desc = "yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]],
     { desc = "yank line to system clipboard" })
-    -- https://vi.stackexchange.com/a/6135 <- interesting
 
 -- system clipboard normal functions (<C-c> & <C-p>)
 vim.keymap.set({"v"}, "<C-c>", [["+y]],
