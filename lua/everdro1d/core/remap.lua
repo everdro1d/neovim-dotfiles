@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 
 -- save file in normal mode and insert
-vim.keymap.set({ "n", "i" }, "<C-s>", vim.cmd.write)
+vim.keymap.set("n", "<C-s>", vim.cmd.write)
 
 -- remap search movement keys
 vim.keymap.set('n', 'm', 'n')
