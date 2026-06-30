@@ -15,7 +15,7 @@ require('match-up').setup({
 
     matchparen = {
         offscreen = {
-            method = "popup",
+            method = "", -- rm popup due to extra buffer
         },
     },
 
