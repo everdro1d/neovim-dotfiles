@@ -33,17 +33,29 @@ local highlight = {
     "RainbowDelimiterViolet",
     "RainbowDelimiterCyan",
 }
+local highlight_blended = {
+    "BlendedRainbowDelimiterRed",
+    "BlendedRainbowDelimiterYellow",
+    "BlendedRainbowDelimiterBlue",
+    "BlendedRainbowDelimiterOrange",
+    "BlendedRainbowDelimiterGreen",
+    "BlendedRainbowDelimiterViolet",
+    "BlendedRainbowDelimiterCyan",
+}
 local hooks = require "ibl.hooks"
 
 -- create the highlight groups in the highlight setup hook, so they are reset
 -- every time the colorscheme changes
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     local alpha = 0.75
+    local alpha_blended = 0.4
     local current_theme = vim.g.colors_name
     local colors = {}
 
     if current_theme == "kanagawa" or current_theme == "kanagawa-wave" then
         -- Kanagawa Dark (Wave)
+        alpha = 0.75
+        alpha_blended = 0.4
         colors = {
             red    = "#C34043", -- autumnRed / waveRed
             yellow = "#DCA561", -- autumnYellow
@@ -55,6 +67,8 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         }
     elseif current_theme == "kanagawa-lotus" then
         -- Kanagawa Light (Lotus)
+        alpha = 1.0
+        alpha_blended = 0.75
         colors = {
             red    = "#c84053", -- lotusRed
             yellow = "#de9800", -- lotusYellow3
@@ -77,6 +91,7 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         }
     end
 
+    -- fairly visible (scope)
     vim.api.nvim_set_hl(0, "RainbowDelimiterRed",    { fg = blend_with_bg(colors.red,    alpha) })
     vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = blend_with_bg(colors.yellow, alpha) })
     vim.api.nvim_set_hl(0, "RainbowDelimiterBlue",   { fg = blend_with_bg(colors.blue,   alpha) })
@@ -84,11 +99,29 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowDelimiterGreen",  { fg = blend_with_bg(colors.green,  alpha) })
     vim.api.nvim_set_hl(0, "RainbowDelimiterViolet", { fg = blend_with_bg(colors.violet, alpha) })
     vim.api.nvim_set_hl(0, "RainbowDelimiterCyan",   { fg = blend_with_bg(colors.cyan,   alpha) })
+
+    -- more transparent (non-scope)
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterRed",    { fg = blend_with_bg(colors.red,    alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterYellow", { fg = blend_with_bg(colors.yellow, alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterBlue",   { fg = blend_with_bg(colors.blue,   alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterOrange", { fg = blend_with_bg(colors.orange, alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterGreen",  { fg = blend_with_bg(colors.green,  alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterViolet", { fg = blend_with_bg(colors.violet, alpha_blended) })
+    vim.api.nvim_set_hl(0, "BlendedRainbowDelimiterCyan",   { fg = blend_with_bg(colors.cyan,   alpha_blended) })
 end)
 
 require("ibl").setup {
-    scope = { highlight = highlight },
-    indent = { highlight = highlight },
+    debounce = 50,
+
+    scope = { -- scope indents should be clearly shown
+        highlight = highlight,
+        char = "▎",
+    },
+
+    indent = { -- std indents should be non-intrusive
+        highlight = highlight_blended,
+        char = "▏",
+    },
 }
 require('rainbow-delimiters.setup').setup {
     strategy = {
