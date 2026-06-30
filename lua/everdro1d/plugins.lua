@@ -76,6 +76,7 @@ return {
         dependencies = {
             "neovim/nvim-lspconfig",
             "j-hui/fidget.nvim",
+            "everdro1d/nvim-snippets",
         },
         enabled = function()
             -- disable on windows due to nix dependency
@@ -83,7 +84,12 @@ return {
         end,
     },
     {
+        "everdro1d/nvim-snippets",
+        dependencies = { "rafamadriz/friendly-snippets" },
+    },
+    {
         "danymat/neogen",
         version = "*",
+        dependencies = { "everdro1d/nvim-snippets" }
     },
 }
