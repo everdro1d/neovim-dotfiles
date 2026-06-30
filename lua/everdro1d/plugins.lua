@@ -46,6 +46,10 @@ return {
         "kylechui/nvim-surround",
         event = "VeryLazy",
     },
+    {
+        "chrisgrieser/nvim-scissors",
+        dependencies = { "everdro1d/nvim-snippets" },
+    },
 
 
     -- Navigation --

@@ -33,6 +33,8 @@ wk.add({
     { "<leader>nf", desc = "function" },
     { "<leader>nt", desc = "type" },
 
+    { "<leader>s", group = "snippets" },
+
     { "<leader>p", group = "in project" },
     { "<leader>pf", desc = "find file (tele.)" },
     { "<leader>pr", desc = "view recently opened files" },
