@@ -26,6 +26,12 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
+autocmd({"BufWritePre"}, {
+    group = buffer_cleanup_commands,
+    pattern = "*",
+    command = [[set ff=unix]],
+})
+
 local filetype_setup_commands = augroup('filetype_setup_commands', { clear = true })
 
 autocmd('FileType', {
