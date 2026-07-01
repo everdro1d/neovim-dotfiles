@@ -21,8 +21,6 @@ wk.add({
     { "<leader>es", desc = "view file system" },
     { "<leader>ps", desc = "view projects list" },
 
-    { "<C>p", desc = "find git file (tele.)" },
-
     { "<leader>a", desc = "add a file to Harpoon" },
     { "<C>e", desc = "open/close Harpoon menu" },
     { "<C>dH", desc = "switch to next buffer in Harpoon" },
@@ -33,12 +31,14 @@ wk.add({
     { "<C>s", desc = "switch to Harpoon 4" },
 
     { "<leader>i", desc = "invert the item under the cursor" },
+
     { "<leader>n", group = "neogen" },
     { "<leader>nf", desc = "function" },
     { "<leader>nt", desc = "type" },
 
     { "<leader>s", group = "snippets" },
 
+    { "<C>p", desc = "find git file (tele.)" },
     { "<leader>p", group = "in project" },
     { "<leader>pf", desc = "find file (tele.)" },
     { "<leader>pr", desc = "view recently opened files" },
