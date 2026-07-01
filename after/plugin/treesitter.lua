@@ -54,9 +54,6 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.wo.foldmethod = "expr"
 
-        -- unfolds all folds upon launch
-        vim.cmd.normal({ "zR", bang = true })
-
         -- both of the following limit the creation of folds (bad)
         -- vim.wo.foldlevelstart = 1
         -- vim.wo.foldminlines = 20

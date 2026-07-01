@@ -60,3 +60,12 @@ autocmd("InsertLeave", {
         vim.opt.relativenumber = true
     end,
 })
+
+autocmd({ "BufEnter", "BufModifiedSet" }, {
+    group = buffer_conv_commands,
+    pattern = "*",
+    callback = function()
+        -- unfolds all folds upon launch
+        vim.cmd.normal({ "zR", bang = true })
+    end,
+})
