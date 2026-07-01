@@ -2,9 +2,6 @@ vim.g.mapleader = " "
 -- open explore
 vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 
--- set redo key
-vim.keymap.set("n", "<C-u>", vim.cmd.redo)
-
 -- remap search movement keys
 vim.keymap.set('n', 'm', 'n')
 vim.keymap.set('n', 'M', 'N')
