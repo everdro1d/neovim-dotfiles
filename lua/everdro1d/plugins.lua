@@ -35,21 +35,11 @@ return {
 
     -- Functional --
     {
-        "mbbill/undotree",
-    },
-    {
-        "folke/trouble.nvim",
-    },
-    {
         'andymass/vim-matchup'
     },
     {
         "kylechui/nvim-surround",
         event = "VeryLazy",
-    },
-    {
-        "chrisgrieser/nvim-scissors",
-        dependencies = { "everdro1d/nvim-snippets" },
     },
     {
         "nguyenvukhang/nvim-toggler",
@@ -60,6 +50,19 @@ return {
             vim.keymap.set({ 'n', 'x' }, 'ga', '<Plug>(EasyAlign)')
             vim.keymap.set({ 'n', 'x' }, 'gla', '<Plug>(EasyAlign)')
         end
+    },
+
+
+    -- Functional, UI Focused --
+    {
+        "mbbill/undotree",
+    },
+    {
+        "folke/trouble.nvim",
+    },
+    {
+        "chrisgrieser/nvim-scissors",
+        dependencies = { "everdro1d/nvim-snippets" },
     },
 
 
