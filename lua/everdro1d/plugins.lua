@@ -27,6 +27,10 @@ return {
 			vim.o.timeoutlen = 300
 		end,
 	},
+    {
+        "code-biscuits/nvim-biscuits"
+        -- depends on tree-sitter - ensure enabled
+    },
 
 
     -- Functional --
