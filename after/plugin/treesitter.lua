@@ -13,6 +13,8 @@ local languages =
 
     -- DEVELOPMENT
     ,"java"
+    ,"javadoc"
+
     ,"python"
     ,"rust"
     --
