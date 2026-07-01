@@ -25,6 +25,8 @@ require('kanagawa').setup({
             DiagnosticVirtualTextInfo  = makeDiagnosticColor(theme.diag.info),
             DiagnosticVirtualTextWarn  = makeDiagnosticColor(theme.diag.warning),
             DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+
+            GrappleCurrent = { fg = theme.diag.warning, bold = true },
         }
     end,
 })

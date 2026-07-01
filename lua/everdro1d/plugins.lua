@@ -67,12 +67,11 @@ return {
 
 
     -- Navigation --
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
     {
+        "cbochs/grapple.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = "Grapple",
+    },
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
