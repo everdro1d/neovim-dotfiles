@@ -13,6 +13,9 @@ wk.setup({
     },
 })
 
+-- set ':W' back to write (too fast will hit this)
+vim.cmd("cabbrev W w")
+
 wk.add({
     { "<leader>e", group = "netrw" },
     { "<leader>es", desc = "view file system" },
