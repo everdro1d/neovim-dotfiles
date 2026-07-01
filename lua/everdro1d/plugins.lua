@@ -19,14 +19,14 @@ return {
     {
         "HiPhish/rainbow-delimiters.nvim",
     },
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-	},
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    },
     {
         "code-biscuits/nvim-biscuits"
         -- depends on tree-sitter - ensure enabled
@@ -72,11 +72,12 @@ return {
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+    {
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
     {
         "nvim-telescope/telescope-project.nvim",
         dependencies = {
