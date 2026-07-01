@@ -18,18 +18,18 @@ autocmd('TextYankPost', {
     end,
 })
 
-local remove_trailing_whitespace = augroup('remove_trailing_whitespace', {})
+local buffer_cleanup_commands = augroup('buffer_cleanup_commands', { clear = true })
 
 autocmd({"BufWritePre"}, {
-    group = remove_trailing_whitespace,
+    group = buffer_cleanup_commands,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
 
-local filetype_indentations = augroup('filetype_indentations', { clear = true })
+local filetype_setup_commands = augroup('filetype_setup_commands', { clear = true })
 
 autocmd('FileType', {
-    group = filetype_indentations,
+    group = filetype_setup_commands,
     pattern = { "nix", "css" },
     callback = function ()
         vim.opt_local.tabstop = 2
