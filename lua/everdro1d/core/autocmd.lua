@@ -37,3 +37,20 @@ autocmd('FileType', {
         vim.opt_local.shiftwidth = 2
     end,
 })
+
+local buffer_conv_commands = augroup('buffer_conv_commands', { clear = true })
+autocmd("InsertEnter", {
+    group = buffer_conv_commands,
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = false
+    end,
+})
+
+autocmd("InsertLeave", {
+    group = buffer_conv_commands,
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = true
+    end,
+})
