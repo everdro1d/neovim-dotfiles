@@ -3,28 +3,32 @@ local tsm = require("tree-sitter-manager")
 local languages =
 {
     -- PACKAGED WITH NVIM (gets overridden either way so include them)
-    --
     "c"
     ,"lua"
     ,"markdown"
     ,"vim"
     ,"vimdoc"
     ,"query"
+    --
 
     -- DEVELOPMENT
     ,"java"
     ,"python"
     ,"rust"
+    --
 
     -- SCRIPTS
     ,"bash"
+    --
 
     -- WEB
     ,"html"
     ,"css"
+    --
 
     -- UTILS
     ,"yaml"
+    --
 }
 
 tsm.setup({
