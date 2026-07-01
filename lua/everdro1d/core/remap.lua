@@ -2,7 +2,10 @@ vim.g.mapleader = " "
 -- open explore
 vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 
--- save file in normal mode and insert
+-- set redo key
+vim.keymap.set("n", "<C-u>", vim.cmd.redo)
+
+-- save file in normal mode
 vim.keymap.set("n", "<C-s>", vim.cmd.write)
 
 -- remap search movement keys
