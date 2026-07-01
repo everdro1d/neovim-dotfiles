@@ -54,6 +54,13 @@ return {
     {
         "nguyenvukhang/nvim-toggler",
     },
+    {
+        "junegunn/vim-easy-align",
+        init = function()
+            vim.keymap.set({ 'n', 'x' }, 'ga', '<Plug>(EasyAlign)')
+            vim.keymap.set({ 'n', 'x' }, 'gla', '<Plug>(EasyAlign)')
+        end
+    },
 
 
     -- Navigation --

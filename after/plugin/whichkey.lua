@@ -32,6 +32,11 @@ wk.add({
 
     { "<leader>i",   desc  = "invert the item under the cursor"               },
 
+    { "ga",          desc  = "EasyAlign (motion/text-object)",     mode = "n" },
+    { "ga",          desc  = "EasyAlign selected region",          mode = "x" },
+    { "gla",         desc  = "LiveEasyAlign (motion/text-object)", mode = "n" },
+    { "gla",         desc  = "LiveEasyAlign selected region",      mode = "x" },
+
     { "<leader>n",   group = "neogen"                                         },
     { "<leader>nf",  desc  = "function"                                       },
     { "<leader>nt",  desc  = "type"                                           },
