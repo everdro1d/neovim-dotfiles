@@ -50,6 +50,9 @@ return {
         "chrisgrieser/nvim-scissors",
         dependencies = { "everdro1d/nvim-snippets" },
     },
+    {
+        "nguyenvukhang/nvim-toggler",
+    },
 
 
     -- Navigation --

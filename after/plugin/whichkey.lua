@@ -32,6 +32,7 @@ wk.add({
     { "<C>n", desc = "switch to Harpoon 3" },
     { "<C>s", desc = "switch to Harpoon 4" },
 
+    { "<leader>i", desc = "invert the item under the cursor" },
     { "<leader>n", group = "neogen" },
     { "<leader>nf", desc = "function" },
     { "<leader>nt", desc = "type" },
