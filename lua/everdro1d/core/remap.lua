@@ -43,8 +43,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]],
 -- system clipboard normal functions (<C-c> & <C-v>)
 vim.keymap.set({"v"}, "<C-c>", [["+y]],
     { desc = "yank to system clipboard" })
-vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+<Cmd>lua vim.cmd('normal! `[v`]=w')<CR>",
-    { desc = "paste from system clipboard" })
+-- vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+<Cmd>lua vim.cmd('normal! `[v`]=w')<CR>",
+--     { desc = "paste from system clipboard" })
 -- select all
 vim.keymap.set({"n"}, "<C-a>", "ggVG",
     { desc = "select all lines" })
@@ -78,9 +78,9 @@ vim.keymap.set("n", "<C-S-F>", "mz ggVG= `z",
     { desc = "format within scope" }
 )
 -- Format on paste
-vim.keymap.set("n", "p", "p`[v`]=",
-    { desc = "paste and format" }
-)
+-- vim.keymap.set("n", "p", "p`[v`]=",
+--     { desc = "paste and format" }
+-- )
 
 -- Folding map - rebind for use in which-key organization help
 vim.keymap.set("n", "<leader>ff", "zf")

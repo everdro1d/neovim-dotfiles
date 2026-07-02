@@ -51,6 +51,17 @@ return {
             vim.keymap.set({ 'n', 'x' }, 'gla', '<Plug>(EasyAlign)')
         end
     },
+    {
+        "nemanjamalesija/smart-paste.nvim",
+        event = 'VeryLazy',
+        config = function()
+            require('smart-paste').setup({})
+
+            vim.keymap.set('i', '<C-v>', function()
+                require('smart-paste').paste({ register = '+', key = '<C-r>' })
+            end, { desc = 'paste from system clipboard' })
+        end,
+    },
 
 
     -- Functional, UI Focused --
