@@ -61,11 +61,23 @@ autocmd("InsertLeave", {
     end,
 })
 
-autocmd({ "BufEnter", "BufModifiedSet" }, {
+-- open folds in all buffers
+autocmd("BufEnter", {
     group = buffer_conv_commands,
     pattern = "*",
     callback = function()
-        -- unfolds all folds upon launch
+        -- unfolds all folds upon entering a buffer
+        vim.cmd.normal({ "zR", bang = true })
+    end,
+})
+
+-- open folds & maintain open in codediff.nvim buffers
+autocmd("User", {
+    group = buffer_conv_commands,
+    pattern = { "CodeDiffOpen", "CodeDiffFileSelect" },
+    callback = function()
+        -- unfolds all folds upon opening diff view or selecting
+        -- a file to diff. Key: it works with the inline toggle
         vim.cmd.normal({ "zR", bang = true })
     end,
 })
