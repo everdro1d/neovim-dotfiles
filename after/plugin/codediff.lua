@@ -26,9 +26,10 @@ require('codediff').setup({
             close_on_open_in_prev_tab = true,
             toggle_layout = "T",
 
+            unstage_hunk = "<leader>hu",
+
             -- unmap
             stage_hunk   = false,
-            unstage_hunk = false,
             discard_hunk = false,
             toggle_compact = false,
         },
