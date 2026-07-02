@@ -37,7 +37,7 @@ wk.add({
 
     { "<leader>s",   group = "snippets"                                       },
 
-    { "<C>p",        desc  = "find git file (tele.)"                          },
+    { "<C-p>",       desc  = "find git file (tele.)"                          },
     { "<leader>p",   group = "in project"                                     },
     { "<leader>pf",  desc  = "find file (tele.)"                              },
     { "<leader>pr",  desc  = "view recently opened files"                     },
