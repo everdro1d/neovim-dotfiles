@@ -21,14 +21,7 @@ wk.add({
     { "<leader>es",  desc  = "view file system"                               },
     { "<leader>ps",  desc  = "view projects list"                             },
 
-    { "<leader>a",   desc  = "add a file to Harpoon"                          },
-    { "<C>e",        desc  = "open/close Harpoon menu"                        },
-    { "<C>dH",       desc  = "switch to next buffer in Harpoon"               },
-    { "<C>dS",       desc  = "switch to prev. buffer in Harpoon"              },
-    { "<C>h",        desc  = "switch to Harpoon 1"                            },
-    { "<C>t",        desc  = "switch to Harpoon 2"                            },
-    { "<C>n",        desc  = "switch to Harpoon 3"                            },
-    { "<C>s",        desc  = "switch to Harpoon 4"                            },
+    { "<leader>g",   group = "git commands",              mode = { "n", "x" } },
 
     { "<leader>i",   desc  = "invert the item under the cursor"               },
 
