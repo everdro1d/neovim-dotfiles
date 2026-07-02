@@ -57,8 +57,11 @@ return {
         config = function()
             require('smart-paste').setup({})
 
-            vim.keymap.set('i', '<C-v>', function()
-                require('smart-paste').paste({ register = '+', key = '<C-r>' })
+            vim.keymap.set('n', '<M-p>', function()
+                require('smart-paste').paste({ register = '+', key = 'p' })
+            end, { desc = 'paste from system clipboard' })
+            vim.keymap.set('n', '<M-P>', function()
+                require('smart-paste').paste({ register = '+', key = 'P' })
             end, { desc = 'paste from system clipboard' })
         end,
     },
