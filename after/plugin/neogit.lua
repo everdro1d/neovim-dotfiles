@@ -61,6 +61,7 @@ vim.keymap.set("n", "<leader>gP",  function() require('neogit').push() end,     
 -- Autocommands
 local neogit_staged_diff_split = vim.api.nvim_create_augroup("neogit_staged_diff_split", { clear = true })
 
+-- determine commit split style
 vim.api.nvim_create_autocmd({ "VimResized", "WinEnter" }, {
     group = neogit_staged_diff_split,
     callback = function()
