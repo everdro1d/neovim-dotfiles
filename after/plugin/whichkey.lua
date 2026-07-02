@@ -22,6 +22,7 @@ wk.add({
     { "<leader>ps",  desc  = "view projects list"                             },
 
     { "<leader>g",   group = "git commands",              mode = { "n", "x" } },
+    { "<leader>gd",  group = "git diff ui",               mode = "n"          },
 
     { "<leader>i",   desc  = "invert the item under the cursor"               },
 
