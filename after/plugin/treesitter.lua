@@ -30,6 +30,7 @@ local languages =
 
     -- UTILS
     ,"yaml"
+    ,"gitcommit"
     --
 }
 
