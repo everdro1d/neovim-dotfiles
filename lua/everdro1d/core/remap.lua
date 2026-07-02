@@ -75,7 +75,7 @@ vim.keymap.set("n", "<C-F>", "mz v%=% `z",
     { desc = "format within scope" }
 )
 vim.keymap.set("n", "<C-S-F>", "mz ggVG= `z",
-    { desc = "format within scope" }
+    { desc = "format file" }
 )
 -- Format on paste
 -- vim.keymap.set("n", "p", "p`[v`]=",
