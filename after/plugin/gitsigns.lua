@@ -1,4 +1,14 @@
+local def_signs = {
+    add          = { text = '+' },
+    change       = { text = '~' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+}
 require('gitsigns').setup {
+    signs = def_signs,
+    signs_staged = def_signs,
+
     signcolumn = true,
     numhl      = false,
 
