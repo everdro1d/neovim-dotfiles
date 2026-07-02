@@ -64,6 +64,25 @@ return {
         "chrisgrieser/nvim-scissors",
         dependencies = { "everdro1d/nvim-snippets" },
     },
+    {
+        "NeogitOrg/neogit",
+        lazy = true,
+        dependencies = {
+            "esmuellert/codediff.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        cmd = "Neogit",
+    },
+    {
+        "esmuellert/codediff.nvim",
+        lazy = true,
+        cmd = "CodeDiff",
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        lazy = true,
+        event = "BufEnter",
+    },
 
 
     -- Navigation --
