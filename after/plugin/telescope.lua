@@ -66,3 +66,5 @@ end)
 vim.keymap.set('n', '<leader>ps', function()
     require'telescope'.extensions.project.project{ display_type = 'full', hide_workspace = true }
 end)
+
+vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "open git branch interface" })
