@@ -66,18 +66,12 @@ autocmd("BufEnter", {
     group = buffer_conv_commands,
     pattern = "*",
     callback = function()
-        -- unfolds all folds upon entering a buffer
-        vim.cmd.normal({ "zR", bang = true })
-    end,
-})
+        local bufname = vim.api.nvim_buf_get_name(0)
+        if bufname:match("NeogitStatus") then
+            return
+        end
 
--- open folds & maintain open in codediff.nvim buffers
-autocmd("User", {
-    group = buffer_conv_commands,
-    pattern = { "CodeDiffOpen", "CodeDiffFileSelect" },
-    callback = function()
-        -- unfolds all folds upon opening diff view or selecting
-        -- a file to diff. Key: it works with the inline toggle
+        -- unfolds all folds upon entering a buffer
         vim.cmd.normal({ "zR", bang = true })
     end,
 })

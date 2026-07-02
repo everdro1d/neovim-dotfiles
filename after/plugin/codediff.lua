@@ -69,3 +69,13 @@ vim.api.nvim_create_autocmd("User", {
         end
     end,
 })
+
+-- open folds & maintain open in codediff.nvim buffers
+vim.api.nvim_create_autocmd("User", {
+    pattern = { "CodeDiffOpen", "CodeDiffFileSelect" },
+    callback = function()
+        -- unfolds all folds upon opening diff view or selecting
+        -- a file to diff. Key: it works with the inline toggle
+        vim.cmd.normal({ "zR", bang = true })
+    end,
+})
