@@ -10,6 +10,10 @@ require('kanagawa').setup({
             local c = require("kanagawa.lib.color")
             return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
         end
+        -- local makeGutterColor = function(color)
+        --     local c = require("kanagawa.lib.color")
+        --     return { fg = c(color):blend(theme.ui.nontext, 0.5):to_hex(), bg = theme.ui.bg_gutter }
+        -- end
 
         return {
             NormalFloat = { bg = theme.ui.bg },
@@ -27,6 +31,11 @@ require('kanagawa').setup({
             DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
 
             GrappleCurrent = { fg = theme.diag.warning, bold = true },
+
+            -- Currently incompatible with lineNr switch on insert autocmd
+            -- LineNrAbove = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
+            -- LineNr      = makeGutterColor(theme.diag.warning),
+            -- LineNrBelow = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
         }
     end,
 })
