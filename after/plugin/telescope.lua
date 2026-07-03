@@ -1,6 +1,24 @@
 local project_actions = require("telescope._extensions.project.actions")
 
 require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-t>"] = "move_selection_next",
+                ["<C-n>"] = "move_selection_previous",
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+            },
+
+            n = {
+                ["t"] = "move_selection_next",
+                ["n"] = "move_selection_previous",
+                ["j"] = "move_selection_next",
+                ["k"] = "move_selection_previous",
+            },
+        },
+    },
+
     extensions = {
         project = {
             base_dirs = {
