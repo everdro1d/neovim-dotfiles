@@ -26,11 +26,21 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd({"BufWritePre"}, {
-    group = buffer_cleanup_commands,
-    pattern = "*",
-    command = [[set ff=unix]],
-})
+-- autocmd({"BufWritePre"}, {
+--     group = buffer_cleanup_commands,
+--     pattern = "*",
+--     callback = function()
+--         if vim.bo.fileformat == "unix" then
+--             return
+--         end
+--
+--         local choice = vim.fn.confirm("set fileformat to unix?", "&yes\n&no", 2)
+--
+--         if choice == 1 then
+--             vim.cmd("set ff=unix")
+--         end
+--     end,
+-- })
 
 local filetype_setup_commands = augroup('filetype_setup_commands', { clear = true })
 
