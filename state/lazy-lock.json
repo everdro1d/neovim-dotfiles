@@ -1,5 +1,5 @@
 {
-  "canola-collection": { "branch": "main", "commit": "8566c09080c3084db1ffba21dec53e2b4235daed" },
+  "canola-collection": { "branch": "fix-git-status-only-root", "commit": "41d65639587f9192cc08747b6e15d93741fc9ebe" },
   "canola.nvim": { "branch": "canola", "commit": "f13fa310e9030a32acfa275325a2151aab992c81" },
   "codediff.nvim": { "branch": "main", "commit": "7608f3b436ce1f84a4888f75e53079caa981a2e9" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
