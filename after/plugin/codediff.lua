@@ -80,3 +80,11 @@ vim.api.nvim_create_autocmd("User", {
         vim.cmd.normal({ "zR", bang = true })
     end,
 })
+
+-- attach gitsigns
+vim.api.nvim_create_autocmd("User", {
+    pattern = { "CodeDiffOpen", "CodeDiffFileSelect" },
+    callback = function(ctx)
+        require'gitsigns'.attach({ bufnr = ctx.buf })
+    end,
+})
