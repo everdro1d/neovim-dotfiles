@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
--- open explore
-vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
 
 -- remap search movement keys
 vim.keymap.set('n', 'm', 'n')

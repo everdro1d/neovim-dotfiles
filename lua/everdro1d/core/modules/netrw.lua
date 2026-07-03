@@ -2,6 +2,9 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local netrw_group = augroup('netrw_group', {})
 
+-- open explore
+vim.keymap.set("n", "<leader>es", vim.cmd.Ex)
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
