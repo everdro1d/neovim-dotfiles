@@ -17,7 +17,7 @@ wk.setup({
 vim.cmd("cabbrev W w")
 
 wk.add({
-    { "<leader>e",   group = "netrw"                                          },
+    { "<leader>e",   group = "file system"                                    },
     { "<leader>es",  desc  = "view file system"                               },
     { "<leader>ps",  desc  = "view projects list"                             },
 

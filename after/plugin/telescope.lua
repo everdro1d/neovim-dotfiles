@@ -32,7 +32,7 @@ require('telescope').setup {
             on_project_selected = function(prompt_bufnr)
                 project_actions.change_working_directory(prompt_bufnr, false)
                 -- open netrw at root
-                vim.cmd("Explore " .. project_actions.get_selected_path(prompt_bufnr))
+                vim.cmd("Canola " .. project_actions.get_selected_path(prompt_bufnr))
             end,
 
             mappings = {

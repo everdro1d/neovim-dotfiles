@@ -79,6 +79,32 @@ return {
         dependencies = { "everdro1d/nvim-snippets" },
     },
     {
+        "barrettruth/canola.nvim",
+        branch = "canola",
+        dependencies = {{
+            "everdro1d/canola-collection",
+            branch = "fix-git-status-only-root",
+            lazy = false,
+        }},
+        lazy = false,
+        init = function()
+            -- Keybinds
+            vim.keymap.set('n', '<leader>es', '<CMD>Canola<CR>')
+
+            -- Main config -- do :help canola-config
+            vim.g.canola = {
+                columns = { 'git_status' }, -- git_status, icons
+            }
+
+            -- Git integration
+            vim.g.canola_git = {
+                show = { untracked = true, ignored = false },
+                format = 'compact',
+            }
+        end,
+    },
+    -- git
+    {
         "NeogitOrg/neogit",
         lazy = true,
         dependencies = {
