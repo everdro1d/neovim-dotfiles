@@ -43,8 +43,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]],
 -- system clipboard normal functions (<C-c> & <C-v>)
 vim.keymap.set({"v"}, "<C-c>", [["+y]],
     { desc = "yank to system clipboard" })
--- vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+<Cmd>lua vim.cmd('normal! `[v`]=w')<CR>",
---     { desc = "paste from system clipboard" })
+vim.keymap.set({"i", "c"}, "<C-v>", "<C-r>+",
+    { desc = "paste from system clipboard (no format)" })
 -- select all
 vim.keymap.set({"n"}, "<C-a>", "ggVG",
     { desc = "select all lines" })
