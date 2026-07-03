@@ -59,10 +59,10 @@ return {
 
             vim.keymap.set('n', '<M-p>', function()
                 require('smart-paste').paste({ register = '+', key = 'p' })
-            end, { desc = 'paste from system clipboard' })
+            end, { desc = '(p)aste from system clipboard' })
             vim.keymap.set('n', '<M-P>', function()
                 require('smart-paste').paste({ register = '+', key = 'P' })
-            end, { desc = 'paste from system clipboard' })
+            end, { desc = '(P)aste from system clipboard' })
         end,
     },
 
