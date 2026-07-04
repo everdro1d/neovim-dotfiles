@@ -14,6 +14,19 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
+-- ncd dir switch command
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    desc = "change working dir via canola",
+    callback = function()
+        local cwd = require("canola").get_current_dir()
+        local file = io.open(vim.fn.expand("/tmp/nvim_cwd"), "w")
+        if file then
+            file:write(cwd)
+            file:close()
+        end
+    end
+})
+
 -- refresh after :! shell cmds
 vim.api.nvim_create_autocmd('ShellCmdPost', {
     callback = function()
