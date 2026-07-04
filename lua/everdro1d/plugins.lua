@@ -65,19 +65,51 @@ return {
             end, { desc = '(P)aste from system clipboard' })
         end,
     },
-
-
+    {
+        "danymat/neogen",
+        version = "*",
+        dependencies = { "everdro1d/nvim-snippets" }
+    },
+    {
+        "everdro1d/nvim-snippets",
+        dependencies = { "rafamadriz/friendly-snippets" },
+    },
     -- Functional, UI Focused --
+    {
+        "chrisgrieser/nvim-scissors",
+        dependencies = { "everdro1d/nvim-snippets" },
+    },
     {
         "mbbill/undotree",
     },
     {
         "folke/trouble.nvim",
     },
+
+
+    -- Git --
     {
-        "chrisgrieser/nvim-scissors",
-        dependencies = { "everdro1d/nvim-snippets" },
+        "NeogitOrg/neogit",
+        lazy = true,
+        dependencies = {
+            "esmuellert/codediff.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        cmd = "Neogit",
     },
+    {
+        "esmuellert/codediff.nvim",
+        lazy = true,
+        cmd = "CodeDiff",
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        lazy = true,
+        event = "BufEnter",
+    },
+
+
+    -- Navigation --
     {
         "barrettruth/canola.nvim",
         branch = "canola",
@@ -154,29 +186,6 @@ return {
             }
         end,
     },
-    -- git
-    {
-        "NeogitOrg/neogit",
-        lazy = true,
-        dependencies = {
-            "esmuellert/codediff.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = "Neogit",
-    },
-    {
-        "esmuellert/codediff.nvim",
-        lazy = true,
-        cmd = "CodeDiff",
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        lazy = true,
-        event = "BufEnter",
-    },
-
-
-    -- Navigation --
     {
         "cbochs/grapple.nvim",
         event = { "BufReadPost", "BufNewFile" },
@@ -189,13 +198,11 @@ return {
     },
     {
         "nvim-telescope/telescope-project.nvim",
-        dependencies = {
-            'nvim-telescope/telescope.nvim',
-        },
+        dependencies = { "nvim-telescope/telescope.nvim" },
     },
 
 
-    -- LSP, Tree-sitter, code-generation, etc. --
+    -- syntax & code highlighting
     {
         "romus204/tree-sitter-manager.nvim",
     },
@@ -210,14 +217,5 @@ return {
             -- disable on windows due to nix dependency
             return vim.fn.has("win32") == 0 and vim.fn.has("win64") == 0
         end,
-    },
-    {
-        "everdro1d/nvim-snippets",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    {
-        "danymat/neogen",
-        version = "*",
-        dependencies = { "everdro1d/nvim-snippets" }
     },
 }
