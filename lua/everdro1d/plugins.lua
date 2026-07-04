@@ -91,9 +91,59 @@ return {
             -- Keybinds
             vim.keymap.set('n', '<leader>es', '<CMD>Canola<CR>')
 
-            -- Main config -- do :help canola-config
+            -- Main config
+            local detail = false
             vim.g.canola = {
-                columns = { 'git_status' }, -- git_status, icons
+                columns = {}, -- git_status, icons
+                watch = true,
+
+                hidden = { enabled = false, patterns = { "^%." }, always = {} },
+
+                confirm = true,
+
+                delete = { wipe = false, recursive = true },
+                create = { file_mode = 420, dir_mode = 493 },
+
+                extglob = false,
+
+                keymaps = {
+                    ["g?"]    = { callback = "actions.show_help", mode = "n" },
+                    ["<CR>"]  = "actions.select",
+
+                    ["<C-s>"] = { callback = "actions.select", opts = { vertical = true } },
+                    ["<C-h>"] = { callback = "actions.select", opts = { horizontal = true } },
+                    ["<C-t>"] = { callback = "actions.select", opts = { tab = true } },
+                    ["<C-p>"] = "actions.preview",
+                    ["<C-c>"] = { callback = "actions.close", mode = "n" },
+                    ["q"]     = { callback = "actions.close", mode = "n" },
+                    ["<C-l>"] = "actions.refresh",
+
+                    ["u"]     = { callback = "actions.parent", mode = "n" },
+                    ["<C-u>"] = { callback = vim.cmd.undo, mode = "n" },
+
+                    ["_"]     = { callback = "actions.open_cwd", mode = "n" },
+                    ["`"]     = { callback = "actions.cd", mode = "n" },
+                    ["g~"]    = { callback = "actions.cd", opts = { scope = "tab" }, mode = "n" },
+
+                    ["gs"]    = { callback = "actions.change_sort", mode = "n" },
+                    ["gx"]    = "actions.open_external",
+                    ["g."]    = { callback = "actions.toggle_hidden", mode = "n" },
+                    ["gd"]    = {
+                        desc = "Toggle file detail view",
+                        callback = function()
+                            detail = not detail
+                            if detail then
+                                require("canola").set_columns({ "permissions", "size", "mtime" })
+                            else
+                                require("canola").set_columns({})
+                            end
+                        end,
+                    },
+                },
+
+                win = {
+                    signcolumn = "yes:1",
+                },
             }
 
             -- Git integration
