@@ -97,7 +97,8 @@ return {
                 columns = {}, -- git_status, icons
                 watch = true,
 
-                hidden = { enabled = false, patterns = { "^%." }, always = {} },
+                -- matches '.' but not '..' as existing '..' pairs are usually '../'
+                hidden = { enabled = true, patterns = { "^%.[^%.]" }, always = { } },
 
                 confirm = true,
 
