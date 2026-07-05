@@ -1,41 +1,3 @@
-require('codediff').setup({
-
-    -- panel configs
-    diff = {
-        conflict_result_position = "center",
-        conflict_result_width_ratio = { 1, 1, 1 },
-        jump_to_first_change = true,
-        compute_moves = true,
-    },
-    explorer = {
-        width = 30,
-        view_mode = "list",
-        file_filter = {
-            ignore = { ".git/**", ".jj/**" },
-        },
-        focus_on_select = true,
-    },
-    history = {
-        position = "bottom",
-        height = 20,
-        view_mode = "list",
-    },
-
-    keymaps = {
-        view = {
-            close_on_open_in_prev_tab = true,
-            toggle_layout = "T",
-
-            unstage_hunk = "<leader>hu",
-
-            -- unmap
-            stage_hunk   = false,
-            discard_hunk = false,
-            toggle_compact = false,
-        },
-    },
-})
-
 -- Keybinds
 vim.keymap.set("n", "<leader>gdd", function() vim.cmd("CodeDiff") end,              { desc = "open git diff ui (codediff)"  })
 vim.keymap.set("n", "<leader>gh", function() vim.cmd("CodeDiff history") end,       { desc = "open git history"             })
@@ -60,6 +22,7 @@ vim.api.nvim_create_autocmd("User", {
         vim.o.showtabline = 0
     end,
 })
+
 -- reset tabline to default
 vim.api.nvim_create_autocmd("User", {
     pattern = "CodeDiffClose",
@@ -85,6 +48,48 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("User", {
     pattern = { "CodeDiffOpen", "CodeDiffFileSelect" },
     callback = function(ctx)
-        require'gitsigns'.attach({ bufnr = ctx.buf })
+        require"gitsigns".attach({ bufnr = ctx.buf })
     end,
 })
+
+return {
+    "esmuellert/codediff.nvim",
+    lazy = true,
+    cmd = "CodeDiff",
+    opts = {
+        -- panel configs
+        diff = {
+            conflict_result_position = "center",
+            conflict_result_width_ratio = { 1, 1, 1 },
+            jump_to_first_change = true,
+            compute_moves = true,
+        },
+        explorer = {
+            width = 30,
+            view_mode = "list",
+            file_filter = {
+                ignore = { ".git/**", ".jj/**" },
+            },
+            focus_on_select = true,
+        },
+        history = {
+            position = "bottom",
+            height = 20,
+            view_mode = "list",
+        },
+
+        keymaps = {
+            view = {
+                close_on_open_in_prev_tab = true,
+                toggle_layout = "T",
+
+                unstage_hunk = "<leader>hu",
+
+                -- unmap
+                stage_hunk   = false,
+                discard_hunk = false,
+                toggle_compact = false,
+            },
+        },
+    }
+}

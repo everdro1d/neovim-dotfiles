@@ -11,7 +11,27 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("everdro1d.plugins", {
-        root = vim.fn.stdpath("data") .. "/state/lazy",
-        lockfile = vim.fn.stdpath("config") .. "/state/lazy-lock.json",
+local function spec_sources()
+    local pl = "everdro1d.plugins"
+    local sources = {
+        "cosmetic",
+        "functional",
+        "git",
+        "navigation",
+        "syntax",
+    }
+
+    local spec = {}
+
+    for _, src in ipairs(sources) do
+        table.insert(spec, { import = pl .. "." .. src } )
+    end
+
+    return spec
+end
+
+require("lazy").setup({
+    spec = spec_sources(),
+    root = vim.fn.stdpath("data") .. "/state/lazy",
+    lockfile = vim.fn.stdpath("config") .. "/state/lazy-lock.json",
 })
