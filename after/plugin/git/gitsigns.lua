@@ -68,12 +68,12 @@ require('gitsigns').setup {
 
         -- HUNK RESET
         map('n', '<leader>hr', function()
-            if vim.fn.confirm("reset this hunk?", "&yes\n&no", 2) == 1 then
+            if vim.fn.confirm("reset this hunk?", "&yes\n&No", 2) == 1 then
                 gitsigns.reset_hunk()
             end
         end, { desc = "reset hunk under cursor" })
         map('v', '<leader>hr', function()
-            if vim.fn.confirm("reset this hunk?", "&yes\n&no", 2) == 1 then
+            if vim.fn.confirm("reset this hunk?", "&yes\n&No", 2) == 1 then
                 gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
             end
         end, { desc = "reset the selected hunk (partial OK)" })
@@ -83,7 +83,7 @@ require('gitsigns').setup {
         map('n', '<leader>hU', gitsigns.stage_buffer, { desc = "unstage active buffer" })
         -- BUFFER RESET
         map('n', '<leader>hR', function()
-            if vim.fn.confirm("reset this hunk?", "&yes\n&no", 2) == 1 then
+            if vim.fn.confirm("reset this hunk?", "&yes\n&No", 2) == 1 then
                 gitsigns.reset_buffer()
             end
         end, { desc = "reset active buffer" })
