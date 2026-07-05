@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader><leader>",
 vim.keymap.set("n", "<C-F>", "mz v%=% `z",
     { desc = "format within scope" }
 )
-vim.keymap.set("n", "<C-S-F>", "mz ggVG= `z",
+vim.keymap.set("n", "gF", "mz ggVG= `z",
     { desc = "format file" }
 )
 -- Format on paste
