@@ -1,4 +1,31 @@
-local snippets_dir = vim.fn.expand('~') .. '/snippets'
+local snippets_dir = '~/.snippets'
+
+local snippets_path = vim.fn.expand(snippets_dir)
+local function setup_snippets()
+  if vim.fn.isdirectory(snippets_path) ~= 0 then
+      return
+  end
+
+  if vim.fn.confirm(string.format("%s not found. Clone everdro1d/snippets?", snippets_dir), "&yes\n&No", 2) == 1 then
+      print("Cloning repository...")
+
+      local repo_url = "https://github.com/everdro1d/snippets.git"
+      local cmd = string.format("git clone %s %s", repo_url, vim.fn.shellescape(snippets_path))
+
+      local output = vim.fn.system(cmd)
+
+      if vim.v.shell_error == 0 then
+          print(string.format("Successfully cloned snippets to %s", snippets_dir))
+      else
+          print("Error cloning repository: " .. output)
+      end
+      return
+  end
+
+  print("Skipped cloning snippets.")
+end
+
+setup_snippets()
 
 -- Snippet Engine
 require('snippets').setup({
@@ -12,7 +39,7 @@ require('snippets').setup({
     -- Use package.json file OR name child directories after filetypes
     -- https://www.reddit.com/r/neovim/comments/188js80/comment/kbn9f3b/
     search_paths = {
-        snippets_dir
+        snippets_path
     },
 
     keys = {},
@@ -23,7 +50,7 @@ vim.opt.completefunc = "v:lua.nvim_snippets_complete"
 
 -- Snippet Manager
 require("scissors").setup({
-    snippetDir = snippets_dir,
+    snippetDir = snippets_path,
 
     snippetSelection = {
 		picker = "auto", ---@type "auto"|"fzf-lua"|"telescope"|"snacks"|"vim.ui.select"
