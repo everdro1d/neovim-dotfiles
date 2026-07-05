@@ -3,7 +3,7 @@ vim.o.autocomplete = true
 vim.o.autocompletedelay = 0
 vim.o.pumheight = 7
 vim.o.pumborder = "rounded"
-vim.opt.completeopt = { "menuone", "noinsert", "popup" }
+vim.opt.completeopt = { "menuone", "noinsert", "noselect", "popup" }
 
 vim.api.nvim_create_autocmd("BufNew", {
     group = vim.api.nvim_create_augroup("autocompletion-sanitizer", { clear = true }),
