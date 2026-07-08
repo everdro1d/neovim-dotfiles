@@ -109,6 +109,16 @@ return {
             capabilities = capabilities,
         }),
 
+        vim.lsp.config("nil_ls", {
+            settings = {
+                Nil = {
+                    nix = {
+                        autoArchive = true,
+                    },
+                },
+            },
+        }),
+
         -- lua config
         vim.lsp.config("lua_ls", {
             settings = {
