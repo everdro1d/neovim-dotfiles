@@ -13,10 +13,10 @@ vim.keymap.set('n', '<leader>dm', function()
 end, { expr = false, desc = "delete mark (next char)" })
 
 -- map movement keys to dvorak
-vim.keymap.set({"n","v"}, "h", "h")
-vim.keymap.set({"n","v"}, "t", "j")
-vim.keymap.set({"n","v"}, "n", "k")
-vim.keymap.set({"n","v"}, "s", "l")
+vim.keymap.set({"n","v","o"}, "h", "h")
+vim.keymap.set({"n","v","o"}, "t", "j")
+vim.keymap.set({"n","v","o"}, "n", "k")
+vim.keymap.set({"n","v","o"}, "s", "l")
 
 -- move highlighted code - try it
 vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
