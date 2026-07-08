@@ -21,6 +21,7 @@
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "a798325b7f36acc62741d1029930a7b96d4dd4bf" },
   "smart-paste.nvim": { "branch": "main", "commit": "ba7ef8cac985fbfa99cbe16f702b0b016c267a17" },
+  "satellite.nvim": { "branch": "main", "commit": "87843c9c8f28b54332497302de380a6d94c9e82b" },
   "telescope-project.nvim": { "branch": "master", "commit": "8e11df94419e444601c09828dadf70890484e443" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "tree-sitter-manager.nvim": { "branch": "main", "commit": "966c28dbc68fc99c82c51a64b6ec37f420aab880" },
