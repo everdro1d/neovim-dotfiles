@@ -88,7 +88,7 @@ return {
             "tailwindcss",                     -- associates with too many filetypes
             "biome",                           -- not mature enough to be default
             "oxlint",                          -- prefer eslint
-            "nixd",
+            "nixd",                            -- prefer nil_ls (faster, incr.)
         },
 
         preferred_servers = {
