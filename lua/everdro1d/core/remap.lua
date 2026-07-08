@@ -4,6 +4,14 @@ vim.g.mapleader = " "
 vim.keymap.set('n', 'm', 'n')
 vim.keymap.set('n', 'M', 'N')
 
+-- remap marks
+vim.keymap.set('n', '<leader>m', 'm', { desc = "add mark (next char)" })
+vim.keymap.set('n', '<leader>dm', function()
+    local char = vim.fn.getchar()
+    local key = vim.fn.nr2char(char)
+    vim.cmd('delmark ' .. key)
+end, { expr = false, desc = "delete mark (next char)" })
+
 -- map movement keys to dvorak
 vim.keymap.set({"n","v"}, "h", "h")
 vim.keymap.set({"n","v"}, "t", "j")
