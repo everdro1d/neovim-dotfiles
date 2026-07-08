@@ -30,6 +30,10 @@ vim.keymap.set("n", "T", "mzJ`z")
 -- qwerty
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- split the rest of the line with 'N'
+vim.keymap.set("n", "N", 'mz"xd$o<ESC>p`z')
+-- dont add qwerty as 'K' is used for hover & man
+
 -- keep cursor in middle when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
