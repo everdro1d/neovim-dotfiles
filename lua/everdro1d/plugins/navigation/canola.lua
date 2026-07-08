@@ -94,10 +94,10 @@ return {
         vim.api.nvim_create_autocmd("VimLeavePre", {
             desc = "change working dir via canola",
             callback = function()
-                local cwd = require("canola").get_current_dir()
+                local cwd = require("canola").get_current_dir() or vim.fn.expand('%:p:h')
                 local file = io.open(vim.fn.expand("/tmp/nvim_cwd"), "w")
                 if file then
-                    file:write(cwd)
+                    if cwd then file:write(cwd) end
                     file:close()
                 end
             end
