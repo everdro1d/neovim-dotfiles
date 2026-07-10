@@ -74,7 +74,7 @@ return {
         },
         history = {
             position = "bottom",
-            height = 20,
+            height = 10,
             view_mode = "list",
         },
 
