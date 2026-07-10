@@ -72,6 +72,14 @@ return {
             show = { untracked = true, ignored = false },
             format = 'compact',
         }
+
+        -- Enable ssh editing
+        vim.g.canola_ssh = {
+          extra_args = { }, -- scp args
+          border = "rounded",
+          recursive = true,
+          hosts = { }, -- per host override
+        }
     end,
     config = function()
         -- write into new files with (ext) by default
