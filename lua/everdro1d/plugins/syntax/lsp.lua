@@ -74,27 +74,18 @@ return {
         -- disable on windows due to nix dependency
         return vim.fn.has("win32") == 0 -- works both 32 and 64 bit
     end,
-    opts = {
-        use_vim_lsp_config = true,
-
-        excluded_servers = {
-            "ccls",                            -- prefer clangd
-            "denols",                          -- prefer eslint and ts_ls
-            "docker_compose_language_service", -- yamlls should be enough?
-            "flow",                            -- prefer eslint and ts_ls
-            "ltex",                            -- grammar tool using too much CPU
-            "quick_lint_js",                   -- prefer eslint and ts_ls
-            "scry",                            -- archived on Jun 1, 2023
-            "tailwindcss",                     -- associates with too many filetypes
-            "biome",                           -- not mature enough to be default
-            "oxlint",                          -- prefer eslint
-            "nixd",                            -- prefer nil_ls (faster, incr.)
-        },
-
-        preferred_servers = {
-            markdown = {},
-            python = { "basedpyright", "ruff" },
-        },
+    opts = function()
+        vim.diagnostic.config({
+            update_in_insert = false,
+            float = {
+                focusable = false,
+                style = "minimal",
+                border = "rounded",
+                source = true,
+                header = "",
+                prefix = "",
+            },
+        })
 
         -- default config
         vim.lsp.config("*", {
@@ -107,7 +98,7 @@ return {
             on_attach = on_attach,
 
             capabilities = capabilities,
-        }),
+        })
 
         vim.lsp.config("nil_ls", {
             settings = {
@@ -117,7 +108,7 @@ return {
                     },
                 },
             },
-        }),
+        })
 
         -- lua config
         vim.lsp.config("lua_ls", {
@@ -152,20 +143,31 @@ return {
                     },
                 },
             },
-        }),
-        prefer_local = true, -- Prefer locally installed servers over nix-shell (default: true)
-    },
-    config = function()
-        vim.diagnostic.config({
-            update_in_insert = false,
-            float = {
-                focusable = false,
-                style = "minimal",
-                border = "rounded",
-                source = true,
-                header = "",
-                prefix = "",
-            },
         })
+
+        return {
+            use_vim_lsp_config = true,
+
+            excluded_servers = {
+                "ccls",                            -- prefer clangd
+                "denols",                          -- prefer eslint and ts_ls
+                "docker_compose_language_service", -- yamlls should be enough?
+                "flow",                            -- prefer eslint and ts_ls
+                "ltex",                            -- grammar tool using too much CPU
+                "quick_lint_js",                   -- prefer eslint and ts_ls
+                "scry",                            -- archived on Jun 1, 2023
+                "tailwindcss",                     -- associates with too many filetypes
+                "biome",                           -- not mature enough to be default
+                "oxlint",                          -- prefer eslint
+                "nixd",                            -- prefer nil_ls (faster, incr.)
+            },
+
+            preferred_servers = {
+                markdown = {},
+                python = { "basedpyright", "ruff" },
+            },
+
+            prefer_local = true, -- Prefer locally installed servers over nix-shell (default: true)
+        }
     end
 }
