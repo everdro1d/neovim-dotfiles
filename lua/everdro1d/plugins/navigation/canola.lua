@@ -137,5 +137,72 @@ return {
                 end
             end,
         })
+
+        -- --------------------------------------------------------------------
+        -- Stage files from canola
+        -- --------------------------------------------------------------------
+
+        -- get `:/` file path from the .git root
+        local function get_root_rel_path(root_dir)
+            local directory = require('canola').get_current_dir()
+            local relpath = string.sub(directory, #root_dir + 1)
+            local file_name = require('canola').get_cursor_entry().name
+
+            return string.format(":%s%s", relpath, file_name)
+        end
+
+        local function handle_finish(obj, unstage, path)
+            if not obj then
+                vim.notify("Failed to execute git cmd.", vim.log.levels.ERROR)
+                return
+            end
+
+            if obj.code ~= 0 then
+                local err_msg = obj.stderr and vim.trim(obj.stderr) or "Unknown error"
+                vim.notify("Git cmd failed: " .. err_msg, vim.log.levels.ERROR)
+                return
+            end
+
+            if obj.stdout and vim.trim(obj.stdout) ~= "" then
+                print(vim.trim(obj.stdout))
+            else
+                vim.notify(string.format("%s: %s", (unstage and "Unstaged" or "Staged"), vim.fs.basename(path)), vim.log.levels.INFO)
+            end
+        end
+
+        -- stage/unstage file under cursor if in a .git root
+        local function git_stage(unstage)
+            local root_dir = vim.fs.root(0, ".git")
+            if not root_dir then return end
+
+            local path = get_root_rel_path(root_dir)
+
+            if unstage then
+                vim.system({'git', 'restore', '--staged', '--', path}, { text = true }, vim.schedule_wrap(function(obj)
+                    handle_finish(obj, unstage, path)
+                end))
+            else
+                vim.system({'git', 'add', '--', path}, { text = true }, vim.schedule_wrap(function(obj)
+                    handle_finish(obj, unstage, path)
+                end))
+            end
+
+            require('canola-git').invalidate()
+        end
+
+        -- register keymaps if the current dir is in a git repo
+        vim.api.nvim_create_autocmd('User', {
+            pattern = 'CanolaReadPost',
+            callback = function(args)
+                if not vim.fs.root(0, ".git") then return end
+
+                vim.keymap.set('n', '<leader>hs',
+                    function() git_stage(false) end,
+                { desc = "stage a git file from canola" })
+                vim.keymap.set('n', '<leader>hu',
+                    function() git_stage(true) end,
+                { desc = "unstage a git file from canola" })
+            end,
+        })
     end
 }
