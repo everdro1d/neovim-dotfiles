@@ -72,7 +72,7 @@ return {
     },
     enabled = function()
         -- disable on windows due to nix dependency
-        return vim.fn.has("win32") == 0 and vim.fn.has("win64") == 0
+        return vim.fn.has("win32") == 0 -- works both 32 and 64 bit
     end,
     opts = {
         use_vim_lsp_config = true,
