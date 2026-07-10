@@ -21,7 +21,7 @@ local function spec_sources()
         "syntax",
     }
 
-    local spec = {}
+    local spec = {{ import = pl }}
 
     for _, src in ipairs(sources) do
         table.insert(spec, { import = pl .. "." .. src } )
