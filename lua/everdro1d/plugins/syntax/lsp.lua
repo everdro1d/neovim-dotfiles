@@ -65,7 +65,7 @@ end
 
 return {
     "dundalek/lazy-lsp.nvim",
-    event = "BufEnter",
+    event = "BufReadPost",
     dependencies = {
         "neovim/nvim-lspconfig",
         { "j-hui/fidget.nvim", opts = {} },
