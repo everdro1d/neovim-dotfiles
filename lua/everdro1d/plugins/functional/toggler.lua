@@ -12,6 +12,7 @@ local global_inverses = {
     -- CUSTOM
     -- misc
     ['"'] = "'", -- " to '
+    ['bottom'] = "top",
 
     -- logical
     ["and"] = "or",
