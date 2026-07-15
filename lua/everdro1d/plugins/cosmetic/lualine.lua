@@ -3,7 +3,25 @@ local function get_canola_dir(canola)
 
     local dir = canola.get_current_dir()
     if dir then
-        return vim.fn.fnamemodify(dir, ":~")
+        local relhome = vim.fn.fnamemodify(dir, ":~")
+        local root = vim.fs.root(dir, { ".git" })
+        if root then
+            local relprefix = dir:gsub('\\', '/'):sub(#root + 1):gsub('^/', '')
+
+            local parts = {}
+            for match in relprefix:gmatch("([^/]+)") do
+                table.insert(parts, match)
+            end
+
+            if #parts > 2 then
+                local truncpath = string.format(":/%s/.../%s", parts[1], parts[#parts])
+                return truncpath
+            end
+
+            return string.format(":/%s", relprefix)
+        end
+
+        return relhome
     else
         return nil
     end
