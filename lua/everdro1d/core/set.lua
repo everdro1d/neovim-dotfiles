@@ -5,6 +5,17 @@ vim.opt.statuscolumn = "%=%l%s"
 vim.opt.numberwidth = 3
 vim.opt.signcolumn = "yes:1"
 
+vim.opt.cmdheight = 0
+require("vim._core.ui2").enable({
+    msg = {
+        targets = 'msg',
+        msg = {
+          height = 0.5,
+          timeout = 4000,
+        },
+    },
+})
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

@@ -8,7 +8,11 @@ return {
 
             window = {
                 max_width = 0.5,
+                align = "top",
                 tabstop = 4,
+            },
+            view = {
+                stack_upwards = false,
             },
         },
     }
