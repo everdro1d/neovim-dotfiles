@@ -8,6 +8,9 @@ return {
     }},
     lazy = false,
     init = function()
+        -- redirect for compat
+        package.preload["oil"] = function() return require("canola") end
+
         -- Keybinds
         vim.keymap.set('n', '<leader>es', '<CMD>Canola<CR>')
 

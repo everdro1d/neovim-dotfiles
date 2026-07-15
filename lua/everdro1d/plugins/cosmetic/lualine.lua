@@ -1,4 +1,5 @@
 local function get_canola_dir(unnamed, trunc_limit)
+    if not package.loaded["canola"] then return 'nil' end
 
     local dir = require("canola").get_current_dir()
     if dir then

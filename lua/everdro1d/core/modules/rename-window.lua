@@ -1,4 +1,6 @@
 local function get_canola_dir()
+    if not package.loaded.canola then return "" end
+
     local dir = require("canola").get_current_dir()
     if dir then
         local relhome = vim.fn.fnamemodify(dir, ":~")
