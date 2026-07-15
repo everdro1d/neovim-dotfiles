@@ -68,7 +68,7 @@ return {
     event = "BufReadPost",
     dependencies = {
         "neovim/nvim-lspconfig",
-        { "j-hui/fidget.nvim", opts = {} },
+        "j-hui/fidget.nvim",
     },
     enabled = function()
         -- disable on windows due to nix dependency
