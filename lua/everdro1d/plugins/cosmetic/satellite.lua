@@ -26,7 +26,7 @@ return {
 
             marks = {
                 enable = true,
-                key = '' -- disable mgmt
+                key = nil -- disable mgmt
             },
         }
     }
