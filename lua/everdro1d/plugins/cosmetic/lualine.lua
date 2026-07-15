@@ -1,7 +1,6 @@
-local function get_canola_dir(canola)
-    if not canola then return 'nil' end
+local function get_canola_dir(unnamed, trunc_limit)
 
-    local dir = canola.get_current_dir()
+    local dir = require("canola").get_current_dir()
     if dir then
         local relhome = vim.fn.fnamemodify(dir, ":~")
         local root = vim.fs.root(dir, { ".git" })
@@ -13,8 +12,8 @@ local function get_canola_dir(canola)
                 table.insert(parts, match)
             end
 
-            if #parts > 2 then
-                local truncpath = string.format(":/%s/.../%s", parts[1], parts[#parts])
+            if #parts > trunc_limit then
+                local truncpath = string.format(":/%s/%s/.../%s/%s", parts[1], parts[2], parts[3], parts[4], parts[#parts])
                 return truncpath
             end
 
@@ -22,9 +21,70 @@ local function get_canola_dir(canola)
         end
 
         return relhome
-    else
-        return nil
     end
+
+    return unnamed
+end
+
+local function file_name()
+    local M = require('lualine.component'):extend()
+
+    local modules = require('lualine_require').lazy_require {
+        utils = 'lualine.utils.utils',
+    }
+
+    local default_options = {
+        symbols = {
+            modified = '[+]',
+            readonly = '[-]',
+            unnamed = '[No Name]',
+            newfile = '[New]',
+        },
+        file_status = true,
+        newfile_status = false,
+        trunc_limit = 5,
+    }
+
+    local function is_new_file()
+        local filename = vim.fn.expand('%')
+        return filename ~= ''
+        and filename:match('^%a+://') == nil
+        and vim.bo.buftype == ''
+        and vim.fn.filereadable(filename) == 0
+    end
+
+    M.init = function(self, options)
+        M.super.init(self, options)
+        self.options = vim.tbl_deep_extend('keep', self.options or {}, default_options)
+    end
+
+    M.update_status = function(self)
+        local data = vim.fn.expand('%:t')
+
+        if data == '' then
+            data = get_canola_dir(self.options.symbols.unnamed, self.options.trunc_limit)
+        end
+
+        data = modules.utils.stl_escape(data)
+
+        local symbols = {}
+        if self.options.file_status then
+            if vim.bo.modified then
+                table.insert(symbols, self.options.symbols.modified)
+            end
+            if vim.bo.modifiable == false or vim.bo.readonly == true then
+                table.insert(symbols, self.options.symbols.readonly)
+            end
+        end
+
+        if self.options.newfile_status and is_new_file() then
+            table.insert(symbols, self.options.symbols.newfile)
+        end
+
+        return data .. (#symbols > 0 and ' ' .. table.concat(symbols, '') or '')
+    end
+
+    return M
 end
 
 local last_pattern, last_match_idx, last_interaction_time
@@ -121,7 +181,7 @@ return {
             sections = {
                 lualine_a = { { 'mode', fmt = function(str) return str:sub(1,1) end } },
                 lualine_b = {'branch', 'diff', { 'diagnostics', icons_enabled = false, symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' }, } },
-                lualine_c = {{'filename', symbols = { unnamed = get_canola_dir(require('canola')) or '[No Name]' } } },
+                lualine_c = { file_name() },
                 lualine_x = { search_count(), 'selectioncount', {'fileformat', icons_enabled = false, }, 'encoding', { 'filetype', icons_enabled = false, } },
                 lualine_y = {'progress'},
                 lualine_z = {'location'}
