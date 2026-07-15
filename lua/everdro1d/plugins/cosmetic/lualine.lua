@@ -1,5 +1,7 @@
-local function get_canola_dir()
-    local dir = require("canola").get_current_dir()
+local function get_canola_dir(canola)
+    if not canola then return 'nil' end
+
+    local dir = canola.get_current_dir()
     if dir then
         return vim.fn.fnamemodify(dir, ":~")
     else
@@ -101,7 +103,7 @@ return {
             sections = {
                 lualine_a = { { 'mode', fmt = function(str) return str:sub(1,1) end } },
                 lualine_b = {'branch', 'diff', { 'diagnostics', icons_enabled = false, symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' }, } },
-                lualine_c = {{'filename', symbols = { unnamed = get_canola_dir() or '[No Name]' } } },
+                lualine_c = {{'filename', symbols = { unnamed = get_canola_dir(require('canola')) or '[No Name]' } } },
                 lualine_x = { search_count(), 'selectioncount', {'fileformat', icons_enabled = false, }, 'encoding', { 'filetype', icons_enabled = false, } },
                 lualine_y = {'progress'},
                 lualine_z = {'location'}
