@@ -146,6 +146,8 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
+        if package.loaded["canola"] and not package.loaded.oil then require("oil") end
+
         require("lualine").setup {
             options = {
                 icons_enabled = true,
