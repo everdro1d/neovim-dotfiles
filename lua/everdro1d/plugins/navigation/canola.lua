@@ -1,3 +1,10 @@
+local templates = {
+    sh = { "#!/usr/bin/env bash", "" },
+    py = { "#!/usr/bin/env python3", "" },
+    nix = { "{ ... }:", "{", "}" },
+    json = { "{", "}" },
+}
+
 return {
     "barrettruth/canola.nvim",
     branch = "canola",
@@ -91,10 +98,7 @@ return {
             callback = function(args)
                 local path = args.data.path
                 local ext = vim.fn.fnamemodify(path, ":e")
-                local templates = {
-                    sh = { "#!/usr/bin/env bash", "" },
-                    py = { "#!/usr/bin/env python3", "" },
-                }
+                local templates = templates
                 if templates[ext] then
                     vim.fn.writefile(templates[ext], path)
                 end
