@@ -110,7 +110,12 @@ return {
             desc = "change working dir via canola",
             callback = function()
                 local cwd = require("canola").get_current_dir() or vim.fn.expand('%:p:h')
-                local file = io.open(vim.fn.expand("/tmp/nvim_cwd"), "w")
+
+                local runtime_dir = os.getenv("XDG_RUNTIME_DIR") or "/tmp"
+                local user = os.getenv("USER") or "default"
+                local tmp_file = runtime_dir .. "/nvim_cwd_" .. user
+
+                local file = io.open(tmp_file, "w")
                 if file then
                     if cwd then file:write(cwd) end
                     file:close()
