@@ -5,8 +5,8 @@ vim.keymap.set("n", "<leader>gg",  function() require('neogit').open() end,     
 vim.keymap.set("n", "<leader>gdp", function() require('neogit').open({ "diff" }) end,   { desc = "open neogit diff panel" })
 vim.keymap.set("n", "<leader>gc",  function() require('neogit').open({ "commit" }) end, { desc = "open commit ui"         })
 
-vim.keymap.set("n", "<leader>gp",  function() require('neogit').pull() end,             { desc = "pull from remote"       })
-vim.keymap.set("n", "<leader>gP",  function() require('neogit').push() end,             { desc = "push to remote"         })
+vim.keymap.set("n", "<leader>gp",  function() require('neogit').open({ "pull" }) end,   { desc = "pull from remote"       })
+vim.keymap.set("n", "<leader>gP",  function() require('neogit').open({ "push" }) end,   { desc = "push to remote"         })
 
 -- determine commit split style
 vim.api.nvim_create_autocmd({ "VimResized", "WinEnter" }, {
