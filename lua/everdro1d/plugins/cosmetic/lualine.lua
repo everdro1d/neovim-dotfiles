@@ -124,7 +124,7 @@ local function search_count()
         local ok, result = pcall(vim.fn.searchcount, { maxcount = self.options.maxcount, timeout = self.options.timeout })
 
         if (not ok or next(result) == nil)
-        or (update_hl(result.current, self.options.display_timeout)) then
+            or (update_hl(result.current, self.options.display_timeout)) then
             return ''
         end
 
@@ -139,6 +139,25 @@ local function search_count()
     end
 
     return M
+end
+
+local function macro_status()
+    local reg_recording = vim.fn.reg_recording()
+    if reg_recording == "" then
+        return ""
+    else
+        return " Recording @" .. reg_recording
+    end
+end
+
+local function macro_color()
+    local hl = vim.api.nvim_get_hl(0, { name = "ModeMsg", link = false })
+    local fg = hl.fg and string.format("#%06x", hl.fg) or nil
+
+    return {
+        fg = fg,
+        gui = hl.bold and "bold" or nil
+    }
 end
 
 return {
@@ -178,13 +197,15 @@ return {
                         'CursorMoved',
                         'CursorMovedI',
                         'ModeChanged',
+                        'RecordingEnter',
+                        'RecordingLeave',
                     },
                 }
             },
             sections = {
                 lualine_a = { { 'mode', fmt = function(str) return str:sub(1,1) end } },
                 lualine_b = {'branch', 'diff', { 'diagnostics', icons_enabled = false, symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' }, } },
-                lualine_c = { file_name() },
+                lualine_c = { file_name(), { macro_status, color = macro_color() } },
                 lualine_x = { search_count(), 'selectioncount', {'fileformat', icons_enabled = false, }, 'encoding', { 'filetype', icons_enabled = false, } },
                 lualine_y = {'progress'},
                 lualine_z = {'location'}
