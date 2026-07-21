@@ -3,7 +3,25 @@ return {
     event = "VeryLazy",
     init = function()
         vim.o.timeout = true
-        vim.o.timeoutlen = 300
+
+        local normal_timeout = 300
+        local macro_timeout = 5000
+
+        vim.o.timeoutlen = normal_timeout
+
+        -- when macro recording starts, whichkey hides this becomes
+        -- an issue when i need more than 300 ms between keys
+        vim.api.nvim_create_autocmd("RecordingEnter", {
+            callback = function()
+                vim.opt.timeoutlen = macro_timeout
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("RecordingLeave", {
+            callback = function()
+                vim.opt.timeoutlen = normal_timeout
+            end,
+        })
     end,
     opts = {
         preset = "classic",

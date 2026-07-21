@@ -85,20 +85,3 @@ autocmd("BufEnter", {
         vim.cmd.normal({ "zR", bang = true })
     end,
 })
-
--- cmdline
-local cmdline_commands = augroup('cmdline_commands', { clear = true })
-autocmd({ "RecordingEnter" }, {
-    group = cmdline_commands,
-    callback = function()
-        vim.opt.cmdheight = 1
-    end,
-})
-autocmd({ "RecordingLeave" }, {
-    group = cmdline_commands,
-    callback = function()
-        if vim.v.cmdbang == 0 then
-            vim.opt.cmdheight = 0
-        end
-    end,
-})
